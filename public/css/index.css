@@ -1,0 +1,72 @@
+:root {
+  --main-background: /*white;*/#181818;
+  --detail-col: #a08c5b; /*or #cbb682 */
+  --titles: #A08c5b;
+  --fnt-col: #d9dbbd;
+}
+
+body.pushable > .pusher {
+  background-color: var(--main-background);
+}
+
+#container {
+  height: 100vh;
+}
+
+#header{
+  height: 10vh;
+  margin: 10px;
+  display: inline-flex;
+  width: 98%;
+}
+
+#header-middle{
+  margin: 10px;
+  width: 50%;
+  margin-left: 300px;
+  display: inherit;
+}
+
+#titleDiv{
+  display: block;
+  margin: 0 auto;
+}
+#mainIcon{
+  color: var(--titles);
+  float: left;
+}
+
+h2 { /*later replace with img for logo*/
+  color: var(--titles);
+  margin-top: 0;
+  float: right;
+  margin-left: 5px;
+}
+
+#header-right{
+  margin: 10px;
+  width: 30%;
+}
+
+#signInButton{
+  background: var(--main-background);
+}
+
+#signInIcon{
+  background: var(--titles);
+}
+
+#signInText{
+  color: var(--titles);
+}
+
+#sideMenuButton {
+  background: var(--titles);
+  float: right;
+}
+
+
+#items {
+  height: 30vh;
+  margin: 10px;
+}
