@@ -1,40 +1,79 @@
 :root {
-  --main-background: /*white;*/#181818;
-  --detail-col: #a08c5b; /*or #cbb682 */
-  --titles: #A08c5b;
-  --fnt-col: #d9dbbd;
+  --main-background: /*white;*/#211A1D;
+  --detail-col: #3B5249; /*or #cbb682 */
+  --titles: #bf9b30; /*#6B6067;*/
+  --fnt-col: #D3D5D4;
+  --fnt-size: 30px;
+  --fnt-family: 'Satisfy'
 }
 
+
+body {
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+}
+
+/*keep this */
 body.pushable > .pusher {
   background-color: var(--main-background);
 }
 
+/*keep this */
 #container {
   height: 100vh;
 }
 
-#header{
-  height: 10vh;
-  margin: 10px;
-  display: inline-flex;
-  width: 98%;
-}
-
-#header-middle{
-  margin: 10px;
-  width: 50%;
-  margin-left: 300px;
-  display: inherit;
-}
-
+/*keep thsi */
 #titleDiv{
   display: block;
   margin: 0 auto;
 }
+/*need this*/
 #mainIcon{
   color: var(--titles);
   float: left;
+  height: 100px;
+  width: 100px;
+  margin-left: 10%;
+  border-radius: 8em;
+  box-shadow: 0 0 0 #000;
+  transition: box-shadow 0.2s linear;
 }
+
+#mainIcon:hover{
+  box-shadow: -1px -1px 12px #bf9b30;
+}
+
+#signInIcon{
+  color: var(--titles);
+}
+
+.ui.basic.modal > .header {
+    color: var(--titles);
+}
+
+#silkInput{
+  background: inherit;
+  color: var(--titles);
+  /*border: 1px solid var(--left-panel);*/
+  border-bottom: 1px solid var(--titles);
+  font-size: 30px;
+  font-family: 'Tangerine', cursive;
+}
+
+#silkInput::placeholder {
+  color: var(--titles);
+  font-family: 'Tangerine', cursive;
+  font-size: 30px;
+}
+
+#silkInput:focus{
+ border-color: var(--titles);
+ color: var(--titles);
+}
+
+
+
 
 h2 { /*later replace with img for logo*/
   color: var(--titles);
@@ -43,30 +82,83 @@ h2 { /*later replace with img for logo*/
   margin-left: 5px;
 }
 
-#header-right{
-  margin: 10px;
-  width: 30%;
+#modalSignIn{
+  border: none;
+  font-family: 'Tangerine', cursive;
+  font-size: 30px;
+
 }
 
 #signInButton{
-  background: var(--main-background);
+  margin: 0 0 0 auto; /*go right*/
 }
 
-#signInIcon{
-  background: var(--titles);
+
+
+#contactButton{
+  margin: 0 0 0 0;
 }
 
-#signInText{
+
+
+#signInButton, #contactButton{
   color: var(--titles);
+  background: var(--main-background);
+  font-weight: normal;
+  border: 1px solid var(--titles);
+  border-radius: 6.285714rem;
+  box-shadow: 0 0 0 #000;
+  transition: box-shadow 0.2s linear;
+  /*position: absolute;
+  top: 21px;
+  left: 64px;*/
+  /*font-family: 'Tangerine', cursive;
+  font-size: 20px;*/
+}
+#signInButton:hover, #contactButton:hover {
+  box-shadow: -1px -1px 12px #bf9b30;
+}
+
+#logInButton{
+  width: 50%;
+  margin: 0 auto;
+  font-family: 'Tangerine', cursive;
+  font-size: 30px;
+}
+
+#loginModal{
+  padding-left: 22%;
+  padding-right: 22%;
+  top:40%;
 }
 
 #sideMenuButton {
-  background: var(--titles);
+  position: absolute;
+  right: 12px;
+  top: 21px;
+  background: var(--main-background);
   float: right;
+  color: var(--titles);
+  border: 1px solid var(--titles);
 }
 
+#topMenu{
+  background: var(--main-background);
+  box-shadow: 0px 0px 0px 0px var(--detail-col);
+  height: 8em;
+}
 
-#items {
+#itemsPanel {
   height: 30vh;
   margin: 10px;
+}
+
+#jewelCard {
+  box-shadow: none;
+  border: none;
+  background: var(--main-background);
+}
+
+#jewelCard:hover{
+  border: 1px solid var(--titles);
 }

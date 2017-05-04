@@ -2793,8 +2793,8 @@ input::selection {
 .ui.inverted.green.buttons .button,
 .ui.inverted.green.button {
   background-color: transparent;
-  box-shadow: 0px 0px 0px 2px #2ECC40 inset !important;
-  color: #2ECC40;
+  box-shadow: 0px 0px 0px 1px var(--titles) inset !important;
+  color: var(--titles);
 }
 
 .ui.inverted.green.buttons .button:hover,
@@ -2811,22 +2811,22 @@ input::selection {
 
 .ui.inverted.green.buttons .button:hover,
 .ui.inverted.green.button:hover {
-  background-color: #22be34;
+  background-color: var(--titles);
 }
 
 .ui.inverted.green.buttons .button:focus,
 .ui.inverted.green.button:focus {
-  background-color: #19b82b;
+  background-color: var(--titles);
 }
 
 .ui.inverted.green.buttons .active.button,
 .ui.inverted.green.active.button {
-  background-color: #1fc231;
+  background-color: var(--titles);
 }
 
 .ui.inverted.green.buttons .button:active,
 .ui.inverted.green.button:active {
-  background-color: #25a233;
+  background-color: var(--titles);
 }
 
 /* Inverted Basic */

@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));  // to support URL-encoded bodi
 app.use(express.static(path.join(__dirname, 'public')))
 
 //Start the app
-var port = 8000;
+var port = 3000;
 
 var onServerStart = function() {
   console.log("Listening on port " + port);
