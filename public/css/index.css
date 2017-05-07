@@ -34,7 +34,7 @@ body.pushable > .pusher {
   float: left;
   height: 100px;
   width: 100px;
-  margin-left: 10%;
+  margin-left: 13%;
   border-radius: 8em;
   box-shadow: 0 0 0 #000;
   transition: box-shadow 0.2s linear;
@@ -52,22 +52,27 @@ body.pushable > .pusher {
     color: var(--titles);
 }
 
+#bottomButton{
+  background: inherit;
+  color: var(--titles);
+}
+
 #silkInput{
   background: inherit;
   color: var(--titles);
   /*border: 1px solid var(--left-panel);*/
   border-bottom: 1px solid var(--titles);
-  font-size: 30px;
-  font-family: 'Tangerine', cursive;
+  /*font-size: 20px;*/
+  /*font-family: 'Tangerine', cursive;*/
 }
 
 #silkInput::placeholder {
   color: var(--titles);
-  font-family: 'Tangerine', cursive;
-  font-size: 30px;
+  /*font-family: 'Tangerine', cursive;
+  font-size: 20px;*/
 }
 
-#silkInput:focus{
+#silkInput:focus, #silkInput:active{
  border-color: var(--titles);
  color: var(--titles);
 }
@@ -124,6 +129,9 @@ h2 { /*later replace with img for logo*/
   margin: 0 auto;
   font-family: 'Tangerine', cursive;
   font-size: 30px;
+  margin-top: 44px;
+  line-height: 0em;
+  font-weight: none;
 }
 
 #loginModal{
@@ -155,7 +163,7 @@ h2 { /*later replace with img for logo*/
 
 #jewelCard {
   box-shadow: none;
-  border: none;
+  border: 1px solid var(--titles);
   background: var(--main-background);
 }
 

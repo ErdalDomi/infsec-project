@@ -4789,10 +4789,10 @@ input::selection {
 *******************************/
 
 .ui.divider {
-  margin: 1rem 0rem;
+  margin: -10px 0rem; /*erdal*/
   line-height: 1;
   height: 0em;
-  font-weight: bold;
+  font-weight: none; /*erdal*/
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(0, 0, 0, 0.85);

@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <title>INFSEC</title>
   <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <script src="semantic/dist/semantic.min.js"></script>
@@ -75,7 +76,7 @@
                 <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
               </div>
 
-              <div class="ui error message"></div>
+              <div class="ui error message" style="background:inherit;"></div>
 
             </form>
           </div>
@@ -84,26 +85,34 @@
         </div>
 
       </div>
+      <div class="ui horizontal divider" style="color: var(--titles); font-family:'Tangerine', cursive;
+      font-size: 57px; text-transform: none; font-weight: none; top: 111px; position: absolute;">Iris Jewelry</div>
 
-<!--
-      <div id="itemsPanel">
-
-        <div class="ui four special cards">
+      <div id="itemsPanel" style="margin-top: 40px;">
+        <div class="ui segment" style="background: inherit;
+        color: var(--titles);
+        border: none;
+        box-shadow:none;
+        text-align: center;
+        padding-bottom: 0px;
+        font-size: 37px;
+        margin-bottom: 0px;
+        font-family: 'Tangerine', cursive;">
+          <p>Shop By Category</p>
+        </div>
+        <div class="ui five special cards" style="margin-top: 40px;">
           <div class="card" id="jewelCard">
             <div class="blurring dimmable image">
               <div class="ui dimmer">
                 <div class="content">
                   <div class="center">
-                    <div class="ui two buttons" style="padding: 10%;">
-                      <div class="ui inverted basic green button">View</div>
-                      <div class="ui inverted basic red button">Buy</div>
-                    </div>
+                      <div class="ui inverted large green button">View more</div>
                   </div>
                 </div>
               </div>
-              <img src="/images/ring.png">
+              <img src="/images/goldring.png">
             </div>
-            <div class="ui bottom attached button">
+            <div class="ui bottom attached button"id="bottomButton">
               <i class="add icon"></i>
               Browse rings
             </div>
@@ -113,18 +122,15 @@
               <div class="ui dimmer">
                 <div class="content">
                   <div class="center">
-                    <div class="ui two buttons" style="padding: 10%;">
-                      <div class="ui inverted basic green button">View</div>
-                      <div class="ui inverted basic red button">Buy</div>
-                    </div>
+                      <div class="ui inverted large green button">View more</div>
                   </div>
                 </div>
               </div>
-              <img src="/images/earring_1.png">
+              <img src="/images/goldring.png">
             </div>
-            <div class="ui bottom attached button">
+            <div class="ui bottom attached button"id="bottomButton">
               <i class="add icon"></i>
-              Browse rings
+              Browse watches
             </div>
           </div>
           <div class="card" id="jewelCard">
@@ -132,100 +138,64 @@
               <div class="ui dimmer">
                 <div class="content">
                   <div class="center">
-                    <div class="ui two buttons" style="padding: 10%;">
-                      <div class="ui inverted basic green button">View</div>
-                      <div class="ui inverted basic red button">Buy</div>
-                    </div>
+                      <div class="ui inverted large green button">View more</div>
                   </div>
                 </div>
               </div>
-              <img src="/images/earring_1.png">
+              <img src="/images/goldring.png">
             </div>
-            <div class="ui bottom attached button">
+            <div class="ui bottom attached button"id="bottomButton">
               <i class="add icon"></i>
-              Browse rings
+              Browse bracelets
             </div>
           </div>
-          <div class="card" id="jewelCard" onclick="alert('hello');">
+          <div class="card" id="jewelCard">
             <div class="blurring dimmable image">
               <div class="ui dimmer">
                 <div class="content">
                   <div class="center">
-                    <div class="ui two buttons" style="padding: 10%;">
-                      <div class="ui inverted basic green button">View</div>
-                      <div class="ui inverted basic red button">Buy</div>
-                    </div>
+                      <div class="ui inverted large green button">View more</div>
                   </div>
                 </div>
               </div>
-              <img src="/images/ring.png">
+              <img src="/images/goldring.png">
             </div>
-            <div class="ui bottom attached button">
+            <div class="ui bottom attached button"id="bottomButton">
               <i class="add icon"></i>
-              Browse rings
+              Browse earrings
+            </div>
+          </div>
+          <div class="card" id="jewelCard">
+            <div class="blurring dimmable image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                      <div class="ui inverted large green button">View more</div>
+                  </div>
+                </div>
+              </div>
+              <img src="/images/goldring.png">
+            </div>
+            <div class="ui bottom attached button" id="bottomButton">
+              <i class="add icon"></i>
+              Browse necklaces
             </div>
           </div>
         </div>
 
-        <div class="ui six cards">
-          <div class="card">
-            <div class="image">
-              <img>
+        <div class="ui inverted vertical footer segment" style="position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background: inherit;
+        color: var(--titles);
+        border-top: 1px solid var(--titles);
+            height: 5%;
+            padding-top: 4px;">
+            <div class="ui container">
+                Travel Match 2015. All Rights Reserved
             </div>
-            <div class="extra">
-              Rating:
-              <div class="ui star rating" data-rating="4"></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="image">
-              <img>
-            </div>
-            <div class="extra">
-              Rating:
-              <div class="ui star rating" data-rating="4"></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="image">
-              <img>
-            </div>
-            <div class="extra">
-              Rating:
-              <div class="ui star rating" data-rating="4"></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="image">
-              <img>
-            </div>
-            <div class="extra">
-              Rating:
-              <div class="ui star rating" data-rating="4"></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="image">
-              <img>
-            </div>
-            <div class="extra">
-              Rating:
-              <div class="ui star rating" data-rating="4"></div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="image">
-              <img>
-            </div>
-            <div class="extra">
-              Rating:
-              <div class="ui star rating" data-rating="4"></div>
-            </div>
-          </div>
         </div>
-      </div>
- -->
-
   </div>
 </body>
 </html>
