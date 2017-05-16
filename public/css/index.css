@@ -1,7 +1,7 @@
 :root {
-  --main-background: /*white;*/#211A1D;
-  --detail-col: #3B5249; /*or #cbb682 */
-  --titles: #bf9b30; /*#6B6067;*/
+  --main-background: /*white;*/#283044;
+  --detail-col: #78A1BB; /*or #cbb682 */
+  --titles: #ba9765; /*#6B6067;*/
   --fnt-col: #D3D5D4;
   --fnt-size: 30px;
   --fnt-family: 'Satisfy'
@@ -46,6 +46,7 @@ body.pushable > .pusher {
 
 #signInIcon{
   color: var(--titles);
+  /*color: orange;*/
 }
 
 .ui.basic.modal > .header {
@@ -124,7 +125,7 @@ h2 { /*later replace with img for logo*/
   box-shadow: -1px -1px 12px #bf9b30;
 }
 
-#logInButton{
+#logInButton, #registerButton{
   width: 50%;
   margin: 0 auto;
   font-family: 'Tangerine', cursive;
@@ -134,7 +135,11 @@ h2 { /*later replace with img for logo*/
   font-weight: none;
 }
 
-#loginModal{
+#registerButton{
+  padding-left: 12%;
+}
+
+#loginModal, #registerModal{
   padding-left: 22%;
   padding-right: 22%;
   top:40%;

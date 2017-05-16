@@ -1,0 +1,238 @@
+/*QuickReset*/ *{box-sizing:border-box;margin:0;} html,body{height:100%;}
+
+/*:root {
+  --background: #000000;
+  --second: #36494E;
+  --first: #A9CEF4;
+  --fnt-col: #E1E2EF;
+}*/
+
+/*main theme*/
+:root {
+  --background: #04080F;
+  --second: #A1C6EA;
+  --first: #507DBC;
+  --fnt-col: #D8D4F2;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+#container{
+  height:100%;
+  overflow: initial;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column; /* or:   flex-flow: column wrap; */
+  height: 100%;
+}
+
+.flex-fill { /* Add this class to the element you want to expand */
+  flex: 1;
+}
+
+
+#bagButton{
+  background: var(--background);
+  /*these three lines below will make it stick right middle of the top menu*/
+  top: 10px;
+  position: absolute;
+  right: 0;
+  /******/
+  color: var(--first);
+}
+
+#topMenuItems{
+  /*these three lines will push the items to the right of the menu*/
+  position: absolute;
+  padding-right: 0;
+  right: 0;
+  /*****************/
+  /*this line will space signin|register from the shopping bag icon*/
+  width: 176px;
+}
+
+#secondMenu{
+  margin: 0;
+  z-index: 99;
+  background: gray;
+}
+
+#secondMenu-sticky-wrapper{
+  z-index: 100;
+}
+
+/*this makes the sliding animation in the second menu when scrolling down */
+#slider{
+  position: relative;
+  padding: 0;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: var(--first);
+  width: 0%;
+}
+
+#topCollections{
+  margin: 30px;
+}
+
+#formSegment{
+  border: none;
+  background: inherit;
+  box-shadow: none;
+}
+/*removing annoyances in sign in modal */
+#formSegment::after{
+  border: none;
+  background: transparent;
+}
+
+#signInIcon{
+  border: none;
+  color: var(--fnt-col);
+}
+
+#inputIcons{
+  color: var(--first);
+}
+
+#inputFields{
+  background: inherit;
+  border: 1px solid var(--first);
+  color: var(--fnt-col);
+}
+
+::-webkit-input-placeholder{
+  color: red;
+}
+
+#inputFields::placeholder{
+  color: var(--fnt-col);
+}
+#logInButton, #registerButton{
+  border: 1px solid var(--first);
+  color: var(--fnt-col);
+  width: 50%;
+  margin-top: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+}
+
+#logInButton:hover, #registerButton:hover{
+  /*background: var(--first);*/
+  color: inherit;
+}
+
+#searchInput{
+  background: inherit;
+  border: 1px solid var(--first);
+  color: var(--fnt-col);
+}
+
+#searchInput::placeholder{
+  color: var(--second);
+}
+/*
+#menuItem > a{
+  color: var(--fnt-col);
+}*/
+
+/*#menuItem:hover{
+  border: 1px solid var(--first);
+}*/
+
+/*#menuItem:hover > a {
+  color: var(--second);
+}*/
+/*
+div#menuItem.item.horizontal{
+  border: 1px solid var(--background);
+  border-bottom: 1px solid var(--first);
+  border-radius: 0.4em;
+}
+
+div#menuItem.item.horizontal:hover{
+  border: 1px solid var(--first);
+}
+
+div#menuItem.item.vertical{
+  border: 1px solid var(--background);
+  border-left: 1px solid var(--first);
+  border-right: 1px solid var(--first);
+}
+div#menuItem.item.vertical:hover{
+  border: 1px solid var(--first);
+}*/
+
+#registerSpan{
+  display: block;
+  color: var(--fnt-col);
+  margin: 0 auto;
+  margin-left: 37%;
+  margin-right: 37%;
+}
+
+#registerSpan > a {
+  color: var(--second);
+}
+
+div.item.horizontal.test{
+  font-family: 'Roboto Condensed';
+  font-size: 16px;
+}
+
+div.item.horizontal.test > a{
+  color: var(--fnt-col);
+}
+
+div.item.horizontal.test:hover > a{
+  color: var(--second);
+}
+
+
+
+.svg-wrapper {
+  position: relative;
+  top: 5%;
+  transform: translateY(-50%);
+	  margin: 0 auto;
+  width: 320px;
+}
+.shape {
+  stroke-dasharray: 140 540;
+  stroke-dashoffset: -474;
+  stroke-width: 8px;
+  fill: transparent;
+  stroke: var(--first); /*#19f6e8;*/
+  border-bottom: 5px solid black;
+  transition: stroke-width 1s, stroke-dashoffset 1s, stroke-dasharray 1s;
+}
+.text {
+  font-family: 'Roboto Condensed';
+  font-size: 22px;
+  line-height: 32px;
+  letter-spacing: 8px;
+  color: var(--fnt-col);
+  top: -48px;
+  position: relative;
+}
+.svg-wrapper:hover .shape {
+  stroke-width: 2px;
+  stroke-dashoffset: 0;
+  stroke-dasharray: 760;
+}
+
+#zachContainer{
+  text-align: center;
+  padding-top: 53px;
+  margin-top: 40px;
+  padding-bottom: 0px;
+  overflow: hidden;
+  height: 70px;
+}

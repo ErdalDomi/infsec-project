@@ -54,13 +54,30 @@ function flip(){
 }
 
 function showSignInModal(){
-  $('.ui.modal')
+  $('#loginModal')
     .modal({
       blurring: true
     })
     .modal('show')
   ;
+}
 
+function showContactModal(){
+  $('#contactModal')
+    .modal({
+      blurring: true
+    })
+    .modal('show')
+  ;
+}
+
+function showRegisterModal(){
+  $('#registerModal')
+    .modal({
+      blurring: true
+    })
+    .modal('show')
+  ;
 }
 
 

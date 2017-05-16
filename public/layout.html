@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>layout scaffolding</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="javascript/layout.js"></script>
+    <script src="javascript/jquery.sticky.js"></script>
+  </head>
+
+  <body>
+
+    <div class="ui right sidebar inverted vertical menu">
+      <h3 class="item">
+        Shopping bag list goes here.
+      </h3>
+    </div>
+
+    <div class="pusher" id="container">
+
+      <div class="ui basic modal" id="loginModal">
+        <div class="ui icon header" id="signInIcon">
+          <i class="envira gallery icon" style="color: var(--first);"></i>
+          Sign in
+        </div>
+        <div class="content" style="text-align: center;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+            <div class="ui stacked segment" id="formSegment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon" id="inputIcons"></i>
+                  <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" id="inputIcons"></i>
+                  <input id="inputFields" type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
+            </div>
+
+            <div class="ui error message" style="background:inherit;"></div>
+
+          </form>
+
+          <span style="color: var(--fnt-col);">Don't have an account? Register <a href="#" style="color: var(--second);" onclick="showRegisterModal();">here.</a></span>
+        </div>
+      </div>
+
+      <div class="ui basic modal" id="registerModal">
+        <div class="ui icon header" id="signInIcon">
+          <i class="user icon" id="inputIcons"></i>
+          Register
+        </div>
+        <div class="content" style="text-align: center;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+            <div class="ui stacked segment" id="formSegment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i id="inputIcons" class="user icon"></i>
+                  <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" id="inputIcons"></i>
+                  <input id="inputFields" type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" id="inputIcons"></i>
+                  <input id="inputFields" type="password" name="confirmpassword" placeholder="Confirm password">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon" id="inputIcons"></i>
+                  <input id="inputFields" type="text" name="address" placeholder="Delivery address" autocomplete="off">
+                </div>
+              </div>
+              <div class="ui fluid large inverted green submit button" id="registerButton">Register</div>
+            </div>
+
+            <div class="ui error message" style="background:inherit;"></div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="flex-col">
+          <div class="ui top fixed borderless menu" style="background:var(--background); border-bottom: 1px solid var(--first); height: 42px;">
+            <div class="item" id="topMenuItems">
+              <a href="#" onclick="showSignInModal();" style="color: var(--fnt-col);">Sign in</a>
+              <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+              <a href="#" onclick="showRegisterModal();" style="color: var(--fnt-col);">Register&nbsp;&nbsp;</a>
+              <span style="color: var(--fnt-col);">0</span>
+              <button class="ui icon button" id="bagButton" onclick="$('.ui.sidebar').sidebar('show');">
+                <i class="shopping bag icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex-fill" style="background:var(--background); margin-top: 42px;">
+            <div id="zachContainer">
+              <div class="svg-wrapper">
+                <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                  <rect class="shape" height="60" width="320" />
+                  <div class="text">ZACH SAUCIER</div>
+                </svg>
+              </div>
+            </div>
+            <!-- <div style="text-align: center; margin-top: 20px;">
+            <a href="layout.html"><img src="images/logo.svg" alt="logo is here"></a>
+            </div> -->
+
+            <div class="ui grid" id="secondMenu" style="background: var(--background);">
+
+              <div class="four wide column">
+                <div id="miniLogo" style="text-align: center; padding-bottom: 0px;">
+                  <img src="images/logo.svg" height="50px" width="250px;">
+                  <!-- <i class="trophy icon" id="miniLogo" style="color: var(--first);"></i>
+                  <label style="color: var(--fnt-col);">Gems Royale</label> -->
+                </div>
+              </div>
+
+              <div class="eight wide column" style="text-align: center; padding-bottom: 0px; ">
+                <div class="ui four item borderless menu" style="background: var(--background); border:none; box-shadow:none; margin-top:1px">
+                  <div class="item horizontal test center" >
+                    <a href="#" >Earrings</a>
+                  </div>
+                  <div class="item horizontal test center" >
+                    <a href="#">Bracelets</a>
+                  </div>
+                  <div class="item horizontal test center" >
+                    <a href="rings.html">Rings</a>
+                  </div>
+                  <div class="item horizontal test center" >
+                    <a href="rings.html">Necklaces</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="four wide column" style="background:; text-align: right;">
+                <div class="ui search" style="padding-top: 10px;">
+                  <div class="ui icon input" style="color:var(--fnt-col);">
+                    <input id="searchInput" class="prompt" type="text" placeholder="Gems...">
+                    <i class="search icon"></i>
+                  </div>
+                  <div class="results"></div>
+                </div>
+              </div>
+
+              <div id="slider"></div>
+
+            </div>
+
+            <div id="varyingContent">
+              <div class="ui two column grid" id="topCollections">
+                <div class="column">
+                  <div class="ui fluid card" style="
+                      border: none;
+                      background: var(--background);
+                      box-shadow: none;">
+                    <div class="image">
+                      <img src="images/plukkatopleft.jpg">
+                    </div>
+                    <div class="content" style="text-align: center;">
+                      <a class="header" style="color: var(--fnt-col);">Daniel Louise</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="ui fluid card" style="
+                      border: none;
+                      background: var(--background);
+                      box-shadow: none;">
+                    <div class="image">
+                      <img src="images/plukkatopright.jpg">
+                    </div>
+                    <div class="content" style="text-align: center;">
+                      <a class="header" style="color: var(--fnt-col);">Helen Troy</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="ui two column grid" id="topCollections">
+                <div class="column">
+                  <div class="ui fluid card" style="
+                      border: none;
+                      background: var(--background);
+                      box-shadow: none;">
+                    <div class="image">
+                      <img src="images/plukkabottomleft.jpg">
+                    </div>
+                    <div class="content" style="text-align: center;">
+                      <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="column" style="text-align:center;">
+                  <!-- <h2>Newsletter</h2>
+                  <h3>Get the latest product & design updates right in your inbox</h3>
+                  <div class="ui input">
+                    <input type="text" placeholder="johndoe@gmail.com">
+                    <button class="ui button">Subscribe</button>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ui bottom borderless menu" style="background:white; height: 42px;">
+            <div class="item" id="bottomMenuItems">
+              <a href="#">Terms of use </a>
+              <a href="#">&nbsp;| Privacy Policy</a>
+              <a href="#">&nbsp;| Sitemap</a>
+              <a href="#">&nbsp;| c 2017 unibz infsec</a>
+            </div>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>

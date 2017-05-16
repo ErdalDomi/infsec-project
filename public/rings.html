@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>layout scaffolding</title>
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+    <script src="javascript/layout.js"></script>
+    <script src="javascript/jquery.sticky.js"></script>
+
+  </head>
+  <body>
+    <div class="ui right sidebar inverted vertical menu">
+      <h3 class="item">
+        Shopping bag list goes here.
+      </h3>
+    </div>
+    <div class="pusher" id="container">
+
+      <div class="ui basic modal" id="loginModal">
+        <div class="ui icon header" id="modalSignIn" style="border: none;">
+          <i class="envira gallery icon" id="signInIcon"></i>
+          Sign in
+        </div>
+        <div class="content" style="text-align: center;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+            <div class="ui stacked segment" id="formSegment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon" style="color: var(--titles);"></i>
+                  <input id="silkInput" type="text" name="email" placeholder="E-mail address" autocomplete="off">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" style="color: var(--titles);"></i>
+                  <input id="silkInput" type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
+            </div>
+
+            <div class="ui error message" style="background:inherit;"></div>
+
+          </form>
+
+          <span style="color: var(--titles);">Don't have an account? Register <a href="#" style="color: orange;" onclick="showRegisterModal();">here.</a></span>
+        </div>
+      </div>
+
+      <div class="ui basic modal" id="registerModal" style="">
+        <div class="ui icon header" id="modalSignIn" style="border: none;">
+          <i class="user icon" id="signInIcon"></i>
+          Register
+        </div>
+        <div class="content" style="text-align: center;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+            <div class="ui stacked segment" id="formSegment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon" style="color: var(--titles);"></i>
+                  <input id="silkInput" type="text" name="email" placeholder="E-mail address" autocomplete="off">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" style="color: var(--titles);"></i>
+                  <input id="silkInput" type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" style="color: var(--titles);"></i>
+                  <input id="silkInput" type="password" name="confirmpassword" placeholder="Confirm password">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon" style="color: var(--titles);"></i>
+                  <input id="silkInput" type="text" name="address" placeholder="Delivery address" autocomplete="off">
+                </div>
+              </div>
+              <div class="ui fluid large inverted green submit button" id="registerButton">Register</div>
+            </div>
+
+            <div class="ui error message" style="background:inherit;"></div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="flex-col">
+          <div class="ui top fixed borderless menu" style="background:white; height: 42px;">
+            <div class="item" id="topMenuItems">
+              <a href="#" onclick="showSignInModal();">Sign in</a>
+              <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+              <a href="#" onclick="showRegisterModal();">Register&nbsp;&nbsp;</a>
+              <span>0</span>
+              <button class="ui icon button" id="bagButton" onclick="$('.ui.sidebar').sidebar('toggle');">
+                <i class="shopping bag icon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="flex-fill" style="background:darkgray; margin-top: 42px;">
+
+            <div style="text-align: center; margin-top: 40px;">
+              <img src="images/logo.svg" alt="logo is here">
+            </div>
+
+            <div class="ui grid" id="secondMenu">
+              <div class="four wide column" style="background:;">
+                <div id="miniLogo">
+                  <i class="trophy icon" id="miniLogo"></i>
+                  <label>Gems Royale</label>
+                </div>
+
+              </div>
+              <div class="eight wide column" style="text-align: center;">
+                <div class="ui four item borderless menu">
+                  <a href="#" class="item">Earrings</a>
+                  <a href="#" class="item">Bracelets</a>
+                  <a href="#" class="item">Rings</a>
+                  <a href="#" class="item">Necklaces</a>
+                </div>
+              </div>
+              <div class="four wide column" style="background:; text-align: right;">
+                <div class="ui search">
+                  <div class="ui icon input">
+                    <input class="prompt" type="text" placeholder="Gems...">
+                    <i class="search icon"></i>
+                  </div>
+                  <div class="results"></div>
+                </div>
+              </div>
+              <div id="slider"></div>
+            </div>
+
+            <div id="varyingContent" >
+
+              <div class="ui two column grid" style="margin:40px;">
+                  <div class="ten wide column" >
+                    <div class="item">
+                      <div class="image" style="float:right; padding: 10px; border: 1px solid black;">
+                        <img class="ui fluid image" src="images/mainring.jpg">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="six wide column" >
+                    <div class="item" style="height: 100%; max-height: 100%;">
+                      <div class="content" style="float:left; height: 100%; padding: 10px; border: 1px solid black;">
+                        <a class="header">Rings</a>
+                        <div class="description">
+                          Rings. That ubiquitous symbol of commitment and eternity.
+                          Just like you, Plukka rings are matchless in terms of style and creativity.
+                          Our array of rings in diamonds, 18K gold, gemstones and sterling silver reflect
+                          our philosophy of choosing only the timeless best.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="ui two column grid">
+                  <div class="three wide column", style="background-color:blue;" >
+
+                    <div class="ui vertical buttons">
+                        <button class="ui toggle button">In stock</button>
+                        <button class="ui toggle button">Designers</button>
+                        <button class="ui toggle button">Events</button>
+                        <button class="ui toggle button">Photos</button>
+                        </div>
+                  </div>
+
+                  <div class="thirteen wide column" style="background-color:red;">
+
+                      <div class="ui horizontal segments">
+                        <div class="ui left floated segment">
+                            Price low/high
+                        </div>
+                        <div class="ui right floated segment">
+                          Pages
+                        </div>
+                      </div>
+
+                      <div class="row">
+
+                          <div class="column">1</div>
+                          <div class="column">2</div>
+                          <div class="column">3</div>
+
+
+
+                          <div class="column">1</div>
+                          <div class="column">2</div>
+                          <div class="column">3</div>
+
+
+
+                          <div class="column">1</div>
+                          <div class="column">2</div>
+                          <div class="column">3</div>
+
+                      </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="ui bottom borderless menu" style="background:white; height: 42px;">
+            <div class="item" id="bottomMenuItems">
+              <a href="#">Terms of use </a>
+              <a href="#">&nbsp;| Privacy Policy</a>
+              <a href="#">&nbsp;| Sitemap</a>
+              <a href="#">&nbsp;| c 2017 unibz infsec</a>
+            </div>
+          </div>
+      </div>
+  </body>
+</html>
