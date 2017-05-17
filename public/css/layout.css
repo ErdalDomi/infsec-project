@@ -1,19 +1,19 @@
 /*QuickReset*/ *{box-sizing:border-box;margin:0;} html,body{height:100%;}
 
-/*:root {
-  --background: #000000;
-  --second: #36494E;
-  --first: #A9CEF4;
-  --fnt-col: #E1E2EF;
-}*/
+:root {
+  --background: #2E2C2D;
+  --second: #A4B494;
+  --first: #927E3E;
+  --fnt-col: #F3E8EE;
+}
 
 /*main theme*/
-:root {
+/*:root {
   --background: #04080F;
   --second: #A1C6EA;
   --first: #507DBC;
   --fnt-col: #D8D4F2;
-}
+}*/
 
 ::-webkit-scrollbar {
     display: none;

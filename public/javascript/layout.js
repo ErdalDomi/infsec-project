@@ -1,7 +1,8 @@
 $( document ).ready(function() {
 
   $('.ui.sidebar').sidebar();
-
+  $('.ui.accordion').accordion();
+  $('.ui.dropdown').dropdown();
   $('.ui.modal').modal({
     onShow : function(){
       $('body').css('overflow', 'hidden');

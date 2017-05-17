@@ -1,226 +1,467 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>layout scaffolding</title>
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
-    <script src="javascript/layout.js"></script>
-    <script src="javascript/jquery.sticky.js"></script>
 
-  </head>
-  <body>
-    <div class="ui right sidebar inverted vertical menu">
-      <h3 class="item">
-        Shopping bag list goes here.
-      </h3>
+<head>
+  <meta charset="utf-8">
+  <title>layout scaffolding</title>
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
+  <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script src="javascript/layout.js"></script>
+  <script src="javascript/jquery.sticky.js"></script>
+
+</head>
+
+<body>
+
+  <div class="ui right sidebar inverted vertical menu">
+    <h3 class="item">
+      Shopping bag list goes here.
+    </h3>
+  </div>
+
+  <div class="pusher" id="container">
+
+    <div class="ui basic modal" id="loginModal">
+      <div class="ui icon header" id="signInIcon">
+        <i class="envira gallery icon" style="color: var(--first);"></i>
+        Sign in
+      </div>
+      <div class="content" style="text-align: center;">
+        <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+          <div class="ui stacked segment" id="formSegment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon" id="inputIcons"></i>
+                <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon" id="inputIcons"></i>
+                <input id="inputFields" type="password" name="password" placeholder="Password">
+              </div>
+            </div>
+            <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
+          </div>
+
+          <div class="ui error message" style="background:inherit;"></div>
+
+        </form>
+
+        <span style="color: var(--fnt-col);">Don't have an account? Register <a href="#" style="color: var(--second);" onclick="showRegisterModal();">here.</a></span>
+      </div>
     </div>
-    <div class="pusher" id="container">
 
-      <div class="ui basic modal" id="loginModal">
-        <div class="ui icon header" id="modalSignIn" style="border: none;">
-          <i class="envira gallery icon" id="signInIcon"></i>
-          Sign in
-        </div>
-        <div class="content" style="text-align: center;">
-          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
-            <div class="ui stacked segment" id="formSegment">
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="user icon" style="color: var(--titles);"></i>
-                  <input id="silkInput" type="text" name="email" placeholder="E-mail address" autocomplete="off">
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="lock icon" style="color: var(--titles);"></i>
-                  <input id="silkInput" type="password" name="password" placeholder="Password">
-                </div>
-              </div>
-              <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
-            </div>
-
-            <div class="ui error message" style="background:inherit;"></div>
-
-          </form>
-
-          <span style="color: var(--titles);">Don't have an account? Register <a href="#" style="color: orange;" onclick="showRegisterModal();">here.</a></span>
-        </div>
+    <div class="ui basic modal" id="registerModal">
+      <div class="ui icon header" id="signInIcon">
+        <i class="user icon" id="inputIcons"></i>
+        Register
       </div>
-
-      <div class="ui basic modal" id="registerModal" style="">
-        <div class="ui icon header" id="modalSignIn" style="border: none;">
-          <i class="user icon" id="signInIcon"></i>
-          Register
-        </div>
-        <div class="content" style="text-align: center;">
-          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
-            <div class="ui stacked segment" id="formSegment">
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="user icon" style="color: var(--titles);"></i>
-                  <input id="silkInput" type="text" name="email" placeholder="E-mail address" autocomplete="off">
-                </div>
+      <div class="content" style="text-align: center;">
+        <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+          <div class="ui stacked segment" id="formSegment">
+            <div class="field">
+              <div class="ui left icon input">
+                <i id="inputIcons" class="user icon"></i>
+                <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
               </div>
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="lock icon" style="color: var(--titles);"></i>
-                  <input id="silkInput" type="password" name="password" placeholder="Password">
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="lock icon" style="color: var(--titles);"></i>
-                  <input id="silkInput" type="password" name="confirmpassword" placeholder="Confirm password">
-                </div>
-              </div>
-              <div class="field">
-                <div class="ui left icon input">
-                  <i class="user icon" style="color: var(--titles);"></i>
-                  <input id="silkInput" type="text" name="address" placeholder="Delivery address" autocomplete="off">
-                </div>
-              </div>
-              <div class="ui fluid large inverted green submit button" id="registerButton">Register</div>
             </div>
-
-            <div class="ui error message" style="background:inherit;"></div>
-
-          </form>
-
-        </div>
-      </div>
-
-      <div class="flex-col">
-          <div class="ui top fixed borderless menu" style="background:white; height: 42px;">
-            <div class="item" id="topMenuItems">
-              <a href="#" onclick="showSignInModal();">Sign in</a>
-              <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-              <a href="#" onclick="showRegisterModal();">Register&nbsp;&nbsp;</a>
-              <span>0</span>
-              <button class="ui icon button" id="bagButton" onclick="$('.ui.sidebar').sidebar('toggle');">
-                <i class="shopping bag icon"></i>
-              </button>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon" id="inputIcons"></i>
+                <input id="inputFields" type="password" name="password" placeholder="Password">
+              </div>
             </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="lock icon" id="inputIcons"></i>
+                <input id="inputFields" type="password" name="confirmpassword" placeholder="Confirm password">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user icon" id="inputIcons"></i>
+                <input id="inputFields" type="text" name="address" placeholder="Delivery address" autocomplete="off">
+              </div>
+            </div>
+            <div class="ui fluid large inverted green submit button" id="registerButton">Register</div>
           </div>
 
-          <div class="flex-fill" style="background:darkgray; margin-top: 42px;">
+          <div class="ui error message" style="background:inherit;"></div>
 
-            <div style="text-align: center; margin-top: 40px;">
-              <img src="images/logo.svg" alt="logo is here">
+        </form>
+
+      </div>
+    </div>
+
+    <div class="flex-col">
+      <div class="ui top fixed borderless menu" style="background:var(--background); border-bottom: 1px solid var(--first); height: 42px;">
+        <div class="item" id="topMenuItems">
+          <a href="#" onclick="showSignInModal();" style="color: var(--fnt-col);">Sign in</a>
+          <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+          <a href="#" onclick="showRegisterModal();" style="color: var(--fnt-col);">Register&nbsp;&nbsp;</a>
+          <span style="color: var(--fnt-col);">0</span>
+          <button class="ui icon button" id="bagButton" onclick="$('.ui.sidebar').sidebar('show');">
+            <i class="shopping bag icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex-fill" style="background:var(--background); margin-top: 42px;">
+        <div id="zachContainer">
+          <div class="svg-wrapper">
+            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+              <rect class="shape" height="60" width="320" />
+              <div class="text">ZACH SAUCIER</div>
+            </svg>
+          </div>
+        </div>
+        <!-- <div style="text-align: center; margin-top: 20px;">
+        <a href="layout.html"><img src="images/logo.svg" alt="logo is here"></a>
+      </div> -->
+
+      <div class="ui grid" id="secondMenu" style="background: var(--background);">
+
+        <div class="four wide column">
+          <div id="miniLogo" style="text-align: center; padding-bottom: 0px;">
+            <img src="images/logo.svg" height="50px" width="250px;">
+            <!-- <i class="trophy icon" id="miniLogo" style="color: var(--first);"></i>
+            <label style="color: var(--fnt-col);">Gems Royale</label> -->
+          </div>
+        </div>
+
+        <div class="eight wide column" style="text-align: center; padding-bottom: 0px; ">
+          <div class="ui four item borderless menu" style="background: var(--background); border:none; box-shadow:none; margin-top:1px">
+            <div class="item horizontal test center" >
+              <a href="#" >Earrings</a>
             </div>
+            <div class="item horizontal test center" >
+              <a href="#">Bracelets</a>
+            </div>
+            <div class="item horizontal test center" >
+              <a href="rings.html">Rings</a>
+            </div>
+            <div class="item horizontal test center" >
+              <a href="rings.html">Necklaces</a>
+            </div>
+          </div>
+        </div>
 
-            <div class="ui grid" id="secondMenu">
-              <div class="four wide column" style="background:;">
-                <div id="miniLogo">
-                  <i class="trophy icon" id="miniLogo"></i>
-                  <label>Gems Royale</label>
-                </div>
+        <div class="four wide column" style="background:; text-align: right;">
+          <div class="ui search" style="padding-top: 10px;">
+            <div class="ui icon input" style="color:var(--fnt-col);">
+              <input id="searchInput" class="prompt" type="text" placeholder="Gems...">
+              <i class="search icon"></i>
+            </div>
+            <div class="results"></div>
+          </div>
+        </div>
 
+        <div id="slider"></div>
+
+      </div>
+
+      <div id="varyingContent">
+        <div class="ui grid">
+
+          <div class="centered row" style="background: var(--background); height: 100%;">
+            <div class="ten wide column" style="background: var(--background); height:100%;">
+              <div class="ui segment" style="background: var(--background); border: 1px solid var(--first);">
+                <img src="images/mainring.jpg" width="100%" height="100%">
               </div>
-              <div class="eight wide column" style="text-align: center;">
-                <div class="ui four item borderless menu">
-                  <a href="#" class="item">Earrings</a>
-                  <a href="#" class="item">Bracelets</a>
-                  <a href="#" class="item">Rings</a>
-                  <a href="#" class="item">Necklaces</a>
-                </div>
-              </div>
-              <div class="four wide column" style="background:; text-align: right;">
-                <div class="ui search">
-                  <div class="ui icon input">
-                    <input class="prompt" type="text" placeholder="Gems...">
-                    <i class="search icon"></i>
+            </div>
+            <div class="five wide column" style="background: var(--background); height: 100%;">
+              <div class="ui segment" style="height: 100%; overflow: scroll; border: 1px solid var(--first); background: var(--background); color: var(--fnt-col);">
+                <h3>Rings</h3>
+                <div style="overflow: scroll;">
+                  <p>Rings. That ubiquitous symbol of commitment and eternity. Just like you,
+                    Plukka rings are matchless in terms of style and creativity. Our array of
+                    rings in diamonds, 18K gold, gemstones and sterling silver reflect our
+                    philosophy of choosing only the timeless best. Choose a ring for yourself
+                    or for another that truly reflects the power of commitment. For different
+                    moods and different occasions, you'll find our collection crammed with
+                    choices, from come-hither cocktail rings in the best tradition of Elizabeth
+                    Taylor to the delicate close-to-the skin bands that express your heart's
+                    quiet secrets. Wave your hand with a rainbow selection of gemstones of
+                    every single color and stone imaginable. From ever-popular blue topaz to
+                    rarefied pink diamonds you can let your true colors show with Plukka.</p>
                   </div>
-                  <div class="results"></div>
                 </div>
               </div>
-              <div id="slider"></div>
             </div>
+          </div>
+          <div class="ui grid">
+            <div class="row">
+              <div class="three wide column" style="background: var(--background);">
+                <h3 style="color: var(--fnt-col);">Refine</h3>
+                <a href="#">clear all</a>
+                <div class="ui accordion" style="color: var(--fnt-col);">
+                  <div class="active title" style="color: var(--fnt-col);">
+                    <i class="dropdown icon"></i>
+                    In stock
+                  </div>
+                  <div class="active content">
+                    <ul>
+                      <li><a href="#">In Stock Items</a></li>
+                      <li><a href="#">Made to Order Items</a></li>
+                    </ul>
+                  </div>
+                  <div class="title" style="color: var(--fnt-col);">
+                    <i class="dropdown icon"></i>
+                    Gemstones
+                  </div>
+                  <div class="content">
+                    <ul>
+                      <li><a href="#">Beryl</a></li>
+                      <li><a href="#">Black Agate</a></li>
+                      <li><a href="#">Opal</a></li>
+                    </ul>
+                  </div>
+                  <div class="title" style="color: var(--fnt-col);">
+                    <i class="dropdown icon"></i>
+                    Precious metals
+                  </div>
+                  <div class="content">
+                    <ul>
+                      <li><a href="#">Black gold</a></li>
+                      <li><a href="#">Silver</a></li>
+                      <li><a href="#">Rose Gold</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="thirteen wide column">
 
-            <div id="varyingContent" >
-
-              <div class="ui two column grid" style="margin:40px;">
-                  <div class="ten wide column" >
-                    <div class="item">
-                      <div class="image" style="float:right; padding: 10px; border: 1px solid black;">
-                        <img class="ui fluid image" src="images/mainring.jpg">
-                      </div>
+                <div style="float: left;">
+                  <div class="ui dropdown">
+                    <i class="dropdown icon"></i>
+                    <div class="text" style="top: 0;">Price</div>
+                    <div class="menu">
+                      <div class="item">Low-High</div>
+                      <div class="item">High-Low</div>
+                      <div class="item">New-Old</div>
                     </div>
                   </div>
-                  <div class="six wide column" >
-                    <div class="item" style="height: 100%; max-height: 100%;">
-                      <div class="content" style="float:left; height: 100%; padding: 10px; border: 1px solid black;">
-                        <a class="header">Rings</a>
-                        <div class="description">
-                          Rings. That ubiquitous symbol of commitment and eternity.
-                          Just like you, Plukka rings are matchless in terms of style and creativity.
-                          Our array of rings in diamonds, 18K gold, gemstones and sterling silver reflect
-                          our philosophy of choosing only the timeless best.
+                </div>
+                <div style="float: right; color: var(--fnt-col);">
+                  view 36 72 < 1 2 3 .. 10 >
+                </div>
+                <br>
+                <div class="ui grid" style="width: 100%;">
+                  <div class="row">
+                    <div class="five wide column">
+                      <div class="ui card" style="
+                      border: none;
+                      background: var(--background);
+                      box-shadow: none;">
+                        <a class="image" href="/itemstub.html">
+                          <img src="images/ring1.jpg">
+                        </a>
+                        <div class="content" style="text-align: center;">
+                          <a class="header" style="color: var(--first);" href="/itemstub.html">Pyramid ring</a>
+                          <div class="meta">
+                            <span style="color: var(--fnt-col);">Collection 1</span>
+                          </div>
+                          <div class="description" style="color: var(--first);">
+                            150$
+                          </div>
                         </div>
-                      </div>
+                    </div>
+                  </div>
+                  <div class="five wide column">
+                    <div class="ui card" style="
+                    border: none;
+                    background: var(--background);
+                    box-shadow: none;">
+                    <div class="image">
+                      <img src="images/ring2.jpg">
+                    </div>
+                    <div class="content" style="text-align: center;">
+                      <a class="header" style="color: var(--fnt-col);">Com Truise</a>
                     </div>
                   </div>
                 </div>
-
-                <div class="ui two column grid">
-                  <div class="three wide column", style="background-color:blue;" >
-
-                    <div class="ui vertical buttons">
-                        <button class="ui toggle button">In stock</button>
-                        <button class="ui toggle button">Designers</button>
-                        <button class="ui toggle button">Events</button>
-                        <button class="ui toggle button">Photos</button>
-                        </div>
+                <div class="five wide column">
+                  <div class="ui card" style="
+                  border: none;
+                  background: var(--background);
+                  box-shadow: none;">
+                  <div class="image">
+                    <img src="images/ring3.jpg">
                   </div>
-
-                  <div class="thirteen wide column" style="background-color:red;">
-
-                      <div class="ui horizontal segments">
-                        <div class="ui left floated segment">
-                            Price low/high
-                        </div>
-                        <div class="ui right floated segment">
-                          Pages
-                        </div>
-                      </div>
-
-                      <div class="row">
-
-                          <div class="column">1</div>
-                          <div class="column">2</div>
-                          <div class="column">3</div>
-
-
-
-                          <div class="column">1</div>
-                          <div class="column">2</div>
-                          <div class="column">3</div>
-
-
-
-                          <div class="column">1</div>
-                          <div class="column">2</div>
-                          <div class="column">3</div>
-
-                      </div>
+                  <div class="content" style="text-align: center;">
+                    <a class="header" style="color: var(--fnt-col);">Com Truise</a>
                   </div>
-
                 </div>
-
+              </div>
+            </div>
+            <div class="row">
+              <div class="five wide column">
+                <div class="ui card" style="
+                border: none;
+                background: var(--background);
+                box-shadow: none;">
+                <div class="image">
+                  <img src="images/ring4.jpg">
+                </div>
+                <div class="content" style="text-align: center;">
+                  <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+                </div>
+              </div>
+            </div>
+            <div class="five wide column">
+              <div class="ui card" style="
+              border: none;
+              background: var(--background);
+              box-shadow: none;">
+              <div class="image">
+                <img src="images/ring5.jpg">
+              </div>
+              <div class="content" style="text-align: center;">
+                <a class="header" style="color: var(--fnt-col);">Com Truise</a>
               </div>
             </div>
           </div>
-
-          <div class="ui bottom borderless menu" style="background:white; height: 42px;">
-            <div class="item" id="bottomMenuItems">
-              <a href="#">Terms of use </a>
-              <a href="#">&nbsp;| Privacy Policy</a>
-              <a href="#">&nbsp;| Sitemap</a>
-              <a href="#">&nbsp;| c 2017 unibz infsec</a>
+          <div class="five wide column">
+            <div class="ui card" style="
+            border: none;
+            background: var(--background);
+            box-shadow: none;">
+            <div class="image">
+              <img src="images/ring6.jpg">
+            </div>
+            <div class="content" style="text-align: center;">
+              <a class="header" style="color: var(--fnt-col);">Com Truise</a>
             </div>
           </div>
+        </div>
       </div>
-  </body>
+      <div class="row">
+        <div class="five wide column">
+          <div class="ui card" style="
+          border: none;
+          background: var(--background);
+          box-shadow: none;">
+          <div class="image">
+            <img src="images/ring7.jpg">
+          </div>
+          <div class="content" style="text-align: center;">
+            <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+          </div>
+        </div>
+      </div>
+      <div class="five wide column">
+        <div class="ui card" style="
+        border: none;
+        background: var(--background);
+        box-shadow: none;">
+        <div class="image">
+          <img src="images/ring8.jpg">
+        </div>
+        <div class="content" style="text-align: center;">
+          <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+        </div>
+      </div>
+    </div>
+    <div class="five wide column">
+      <div class="ui card" style="
+      border: none;
+      background: var(--background);
+      box-shadow: none;">
+      <div class="image">
+        <img src="images/ring9.jpg">
+      </div>
+      <div class="content" style="text-align: center;">
+        <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="">
+  <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> ... <a href="#">10</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="ui four column grid">
+  <div class="row" style="background: var(--background); border-top: 1px solid var(--first);">
+    <div class="column">
+      <div class="">
+        <h4 style="color: var(--fnt-col);">COMPANY</h4>
+        <ul style="color: var(--fnt-col); list-style-type: none;">
+          <li>About Sauicer</li>
+          <li>Store locations</li>
+          <li>Investor Center</li>
+        </ul>
+      </div>
+    </div>
+    <div class="column">
+      <h4 style="color: var(--fnt-col);">Customer Service</h4>
+      <ul style="color: var(--fnt-col); list-style-type: none;">
+        <li>About Sauicer</li>
+        <li>Store locations</li>
+        <li>Investor Center</li>
+      </ul>
+    </div>
+    <div class="column" style="background: var(--background);">
+      <h4 style="color: var(--fnt-col);">Keep in touch</h4>
+      <div class="row">
+        <button class="ui circular facebook icon button">
+          <i class="facebook icon"></i>
+        </button>
+        <button class="ui circular instagram icon button">
+          <i class="instagram icon"></i>
+        </button>
+      </div>
+      <div class="row">
+        <button class="ui circular twitter icon button">
+          <i class="twitter icon"></i>
+        </button>
+        <button class="ui circular pinterest icon button">
+          <i class="pinterest icon"></i>
+        </button>
+      </div>
+
+
+    </div>
+    <div class="column">
+      <h2 style="color: var(--fnt-col);">Newsletter</h2>
+      <p style="color: var(--fnt-col);">Get the latest product & design updates right in your inbox</p>
+      <div class="ui input">
+        <input style="
+        border-radius: 0em;
+        border: 1px solid var(--first);
+        color: var(--fnt-col);
+        background: inherit; "type="text" placeholder="johndoe@gmail.com">
+        <button class="ui button" style="
+        border: 1px solid var(--first);
+        border-radius: 0em;
+        color: var(--fnt-col);
+        background: inherit;">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div class="three column row" style="background: var(--background);">
+    <div class="column" style="color: var(--fnt-col);">
+      Terms of use | Privacy Policy | Sitemap | Copyright
+    </div>
+  </div>
+</div>
+
+
+</div>
+</div>
+</body>
 </html>
