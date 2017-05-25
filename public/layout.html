@@ -164,7 +164,7 @@
 
             <div id="varyingContent">
               <div class="ui two column grid" id="topCollections">
-                <div class="column">
+                <div class="column" style="padding-right: 20px;">
                   <div class="ui fluid card" style="
                       border: none;
                       background: var(--background);
@@ -173,11 +173,11 @@
                       <img src="images/plukkatopleft.jpg">
                     </div>
                     <div class="content" style="text-align: center;">
-                      <a class="header" style="color: var(--fnt-col);">Daniel Louise</a>
+                      <a class="header" style="color: var(--fnt-col);">Louise Collection</a>
                     </div>
                   </div>
                 </div>
-                <div class="column">
+                <div class="column" style="padding-left: 20px;">
                   <div class="ui fluid card" style="
                       border: none;
                       background: var(--background);
@@ -186,14 +186,14 @@
                       <img src="images/plukkatopright.jpg">
                     </div>
                     <div class="content" style="text-align: center;">
-                      <a class="header" style="color: var(--fnt-col);">Helen Troy</a>
+                      <a class="header" style="color: var(--fnt-col);">Helen Collection</a>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div class="ui two column grid" id="topCollections">
-                <div class="column">
+                <div class="column" style="margin-bottom: 50px; padding-right: 20px;">
                   <div class="ui fluid card" style="
                       border: none;
                       background: var(--background);
@@ -202,11 +202,11 @@
                       <img src="images/plukkabottomleft.jpg">
                     </div>
                     <div class="content" style="text-align: center;">
-                      <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+                      <a class="header" style="color: var(--fnt-col);">Trey Collection</a>
                     </div>
                   </div>
                 </div>
-                <div class="column" style="text-align:center;">
+                <div class="column" style="text-align:center; padding-top: 10%;">
                   <h2 style="color: var(--fnt-col);">Newsletter</h2>
                   <p style="color: var(--fnt-col);">Get the latest product & design updates right in your inbox</p>
                   <div class="ui input">
@@ -230,47 +230,47 @@
           <div class="ui four column grid">
             <div class="row" style="background: var(--background); border-top: 1px solid var(--first);">
               <div class="column">
-                <div class="">
+                <div style="margin-left: 45%;">
                   <h4 style="color: var(--fnt-col);">COMPANY</h4>
-                  <ul style="color: var(--fnt-col); list-style-type: none;">
-                    <li>About Sauicer</li>
-                    <li>Store locations</li>
-                    <li>Investor Center</li>
+                  <ul style="color: var(--fnt-col); list-style-type: none; padding-left: 0;">
+                    <li><a href="#">About Sauicer</a></li>
+                    <li><a href="#">Store locations</a></li>
+                    <li><a href="#">Investor Center</a></li>
                   </ul>
                 </div>
               </div>
-              <div class="column">
+              <div class="column" style="padding-left: 80px;">
                 <h4 style="color: var(--fnt-col);">Customer Service</h4>
-                <ul style="color: var(--fnt-col); list-style-type: none;">
-                  <li>About Sauicer</li>
-                  <li>Store locations</li>
-                  <li>Investor Center</li>
+                <ul style="color: var(--fnt-col); list-style-type: none; padding-left: 0;">
+                  <li><a href="#">About Sauicer</a></li>
+                  <li><a href="#">Store locations</a></li>
+                  <li><a href="#">Investor Center</a></li>
                 </ul>
               </div>
-              <div class="column" style="background: var(--background);">
+              <div class="column" style="background: var(--background); width: 18%;">
                 <h4 style="color: var(--fnt-col);">Keep in touch</h4>
-                <div class="row">
-                  <button class="ui circular facebook icon button">
+                <div class="row" style="margin-bottom: 10px;">
+                  <button class="ui circular facebook icon button" id="socialButton" style="margin-right: 25px;">
                     <i class="facebook icon"></i>
                   </button>
-                  <button class="ui circular instagram icon button">
+                  <button class="ui circular instagram icon button" id="socialButton">
                     <i class="instagram icon"></i>
                   </button>
                 </div>
                 <div class="row">
-                  <button class="ui circular twitter icon button">
+                  <button class="ui circular twitter icon button" id="socialButton" style="margin-right: 25px;">
                     <i class="twitter icon"></i>
                   </button>
-                  <button class="ui circular pinterest icon button">
+                  <button class="ui circular pinterest icon button" id="socialButton">
                     <i class="pinterest icon"></i>
                   </button>
                 </div>
 
 
               </div>
-              <div class="column">
-                <h2 style="color: var(--fnt-col);">Newsletter</h2>
-                <p style="color: var(--fnt-col);">Get the latest product & design updates right in your inbox</p>
+              <div class="column" style="text-align:center; width: 32%;">
+                <h2 style="color: var(--fnt-col); ">Newsletter</h2>
+                <p style="color: var(--fnt-col); ">Get the latest product & design updates right in your inbox</p>
                 <div class="ui input">
                   <input style="
                   border-radius: 0em;
@@ -286,8 +286,14 @@
               </div>
             </div>
             <div class="row" style="background: var(--background);">
-              <div class="column" style="color: var(--fnt-col);">
-                Terms of use | Privacy Policy | Sitemap | Copyright
+              <div class="column" style="color: var(--fnt-col); margin-left: 10%; width: 50%;">
+                <a href="#">Terms of use</a>
+                <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <a href="#">Privacy Policy</a>
+                <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <a href="#">Sitemap</a>
+                <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+                <a href="#">Copyright</a>
               </div>
             </div>
           </div>

@@ -1,39 +1,43 @@
-var express = require('express')
-var app = express()
-var path = require('path')
-var bodyParser = require('body-parser')
-var Client = require('pg').Client;
-var connection = require('pg').Connection;
+// set up ======================================================================
+// get all the tools we need
+var express  = require('express');
+var app      = express();
+var port     = process.env.PORT || 3000;
+var mongoose = require('mongoose');
+var passport = require('passport');
+var flash    = require('connect-flash');
+var path     = require('path');
 
+var morgan       = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser   = require('body-parser');
+var session      = require('express-session');
+
+//var configDB = require('./config/database.js');
+
+// configuration ===============================================================
+//mongoose.connect(configDB.url); // connect to our database
+
+// require('./config/passport')(passport); // pass passport for configuration
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser()); // get information from html forms
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({extended:true}));  // to support URL-encoded bodies
+app.use(express.static(path.join(__dirname, 'public'))) //to serve static files
+app.set('view engine', 'ejs'); // set up ejs for templating
 
-app.use(express.static(path.join(__dirname, 'public')))
+// required for passport
+app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
 
-//Start the app
-var port = 3000;
+// routes ======================================================================
+//require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
-var onServerStart = function() {
-  console.log("Listening on port " + port);
-}
-
-app.listen(port,onServerStart);
-
-//-----------------db connection stub ------------------//
-console.log("Connecting to the db...");
-var username = 'postgres'; //request.body.username;
-var password = 'password'; //request.body.password;
-var dbname = 'infsec'; //request.body.dbname;
-client = new Client({
-    user: username,
-    password: password,
-    database: dbname,
-    host: '127.0.0.1',
-    port: 5432
-  });
-connection = client.connect(function(err){
-  if(err){
-    console.log("error connecting ", err);
-  }
-});
-console.log('Connected to '+dbname + ' as user ' +username);
+// launch ======================================================================
+app.listen(port);
+console.log('The magic happens on port ' + port);

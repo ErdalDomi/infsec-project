@@ -4,19 +4,29 @@
 <head>
   <meta charset="utf-8">
   <title>layout scaffolding</title>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <!-- bxSlider Javascript file -->
+  <script src="/javascript/bxslider.js"></script>
+  <!-- bxSlider CSS file -->
+  <link href="css/bxslider.css" rel="stylesheet" />
+
+
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
   <link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
   <script src="semantic/dist/semantic.min.js"></script>
   <script src="javascript/layout.js"></script>
   <script src="javascript/jquery.sticky.js"></script>
+
+
 
 </head>
 
 <body>
 
-  <div class="ui right sidebar inverted vertical menu">
+  <div class="ui right sidebar inverted vertical menu" id="shoppingCart">
     <h3 class="item">
       Shopping bag list goes here.
     </h3>
@@ -104,7 +114,7 @@
           <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <a href="#" onclick="showRegisterModal();" style="color: var(--fnt-col);">Register&nbsp;&nbsp;</a>
           <span style="color: var(--fnt-col);">0</span>
-          <button class="ui icon button" id="bagButton" onclick="$('.ui.sidebar').sidebar('show');">
+          <button class="ui icon button" id="bagButton" onclick="$('#shoppingCart').sidebar().sidebar('toggle');">
             <i class="shopping bag icon"></i>
           </button>
         </div>
@@ -167,65 +177,48 @@
       <div id="varyingContent">
         <div class="ui grid">
 
-          <div class="centered row" style="background: var(--background); height: 100%;">
-            <div class="ten wide column" style="background: var(--background); height:100%;">
-              <div class="ui segment" style="background: var(--background); border: 1px solid var(--first);">
-                <img src="images/mainring.jpg" width="100%" height="100%">
-              </div>
-            </div>
-            <div class="five wide column" style="background: var(--background); height: 100%;">
-              <div class="ui segment" style="height: 100%; overflow: scroll; border: 1px solid var(--first); background: var(--background); color: var(--fnt-col);">
-                <h3>Rings</h3>
-                <div style="overflow: scroll;">
-                  <p>Rings. That ubiquitous symbol of commitment and eternity. Just like you,
-                    Plukka rings are matchless in terms of style and creativity. Our array of
-                    rings in diamonds, 18K gold, gemstones and sterling silver reflect our
-                    philosophy of choosing only the timeless best. Choose a ring for yourself
-                    or for another that truly reflects the power of commitment. For different
-                    moods and different occasions, you'll find our collection crammed with
-                    choices, from come-hither cocktail rings in the best tradition of Elizabeth
-                    Taylor to the delicate close-to-the skin bands that express your heart's
-                    quiet secrets. Wave your hand with a rainbow selection of gemstones of
-                    every single color and stone imaginable. From ever-popular blue topaz to
-                    rarefied pink diamonds you can let your true colors show with Plukka.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="centered row" style="background: var(--background); height: 100%; margin-right: 20px; margin-left: 20px; visibility:hidden;" id="photoSlider">
+            <ul class="bxslider">
+              <li><img src="images/mainring.jpg" /></li>
+              <li><img src="images/mainring.jpg" /></li>
+              <li><img src="images/mainring.jpg" /></li>
+              <li><img src="images/mainring.jpg" /></li>
+            </ul>
           </div>
+
           <div class="ui grid">
             <div class="row">
-              <div class="three wide column" style="background: var(--background);">
+              <div class="three wide column" style="background: var(--background); padding-left: 40px;">
                 <h3 style="color: var(--fnt-col);">Refine</h3>
                 <a href="#">clear all</a>
                 <div class="ui accordion" style="color: var(--fnt-col);">
                   <div class="active title" style="color: var(--fnt-col);">
-                    <i class="dropdown icon"></i>
+                    <i class="dropdown icon" style="color: var(--first);"></i>
                     In stock
                   </div>
                   <div class="active content">
-                    <ul>
+                    <ul style="list-style-type: none;">
                       <li><a href="#">In Stock Items</a></li>
                       <li><a href="#">Made to Order Items</a></li>
                     </ul>
                   </div>
                   <div class="title" style="color: var(--fnt-col);">
-                    <i class="dropdown icon"></i>
+                    <i class="dropdown icon" style="color: var(--first);"></i>
                     Gemstones
                   </div>
                   <div class="content">
-                    <ul>
+                    <ul style="list-style-type: none;">
                       <li><a href="#">Beryl</a></li>
                       <li><a href="#">Black Agate</a></li>
                       <li><a href="#">Opal</a></li>
                     </ul>
                   </div>
                   <div class="title" style="color: var(--fnt-col);">
-                    <i class="dropdown icon"></i>
+                    <i class="dropdown icon" style="color: var(--first);"></i>
                     Precious metals
                   </div>
                   <div class="content">
-                    <ul>
+                    <ul style="list-style-type: none;">
                       <li><a href="#">Black gold</a></li>
                       <li><a href="#">Silver</a></li>
                       <li><a href="#">Rose Gold</a></li>
@@ -237,19 +230,64 @@
 
                 <div style="float: left;">
                   <div class="ui dropdown">
-                    <i class="dropdown icon"></i>
-                    <div class="text" style="top: 0;">Price</div>
-                    <div class="menu">
-                      <div class="item">Low-High</div>
-                      <div class="item">High-Low</div>
-                      <div class="item">New-Old</div>
+
+                    <div class="text" style="top: 0; letter-spacing: 1px;">Price</div>
+                    <i class="dropdown icon" style="color: var(--first);"></i>
+                    <div class="menu" style="background: var(--background);">
+                      <div class="item" style="color: var(--first);">Low - High</div>
+                      <div class="item" style="color: var(--first);">High-Low</div>
+                      <div class="item" style="color: var(--first);">New-Old</div>
                     </div>
                   </div>
                 </div>
-                <div style="float: right; color: var(--fnt-col);">
-                  view 36 72 < 1 2 3 .. 10 >
+                <div class="ui pagination menu" style="float: right; background: var(--background); border: none;">
+                  <a class="active item" style="color: var(--first);">
+                    1
+                  </a>
+                  <a class="item" style="color: var(--fnt-col);">
+                    2
+                  </a>
+                  <div class="disabled item" style="color: var(--second);">
+                    ...
+                  </div>
+                  <a class="item" style="color: var(--fnt-col);">
+                    10
+                  </a>
+                  <a class="item" style="color: var(--fnt-col);">
+                    11
+                  </a>
+                  <a class="item" style="color: var(--fnt-col);">
+                    12
+                  </a>
                 </div>
                 <br>
+
+
+                <div class="ui modal" id="itemModal">
+                  <!-- <i class="close icon"></i> -->
+                  <div class="image content">
+                    <div class="ui large image">
+                      <img src="images/ring1.jpg">
+                    </div>
+                    <div class="description" style="margin-top:30px">
+                      <div class="ui header">PYRAMID BLACK STERLING RING</div>
+                      <p>Perez Bitan</p>
+                      <h5>A delicate yet strong pyramid floats above this black sterling silver band. Day or night, you will feel its power.</h5>
+                      <h3 style="color: var(--first);">150.99$</h3>
+                    </div>
+                  </div>
+                  <div class="actions">
+                    <div class="ui black deny button">
+                      Close
+                    </div>
+                    <div class="ui positive right labeled icon button" id="addToCart" onclick="$('#shoppingCart').sidebar('toggle');">
+                      Add to cart
+                      <i class="cart icon"></i>
+                    </div>
+                  </div>
+                </div>
+
+
                 <div class="ui grid" style="width: 100%;">
                   <div class="row">
                     <div class="five wide column">
@@ -257,32 +295,51 @@
                       border: none;
                       background: var(--background);
                       box-shadow: none;">
-                        <a class="image" href="/itemstub.html">
+
+                        <div class="image" onclick="itemModal('pyramid ring')">
                           <img src="images/ring1.jpg">
-                        </a>
+                        </div>
+
                         <div class="content" style="text-align: center;">
                           <a class="header" style="color: var(--first);" href="/itemstub.html">Pyramid ring</a>
                           <div class="meta">
-                            <span style="color: var(--fnt-col);">Collection 1</span>
+                            <span style="color: var(--fnt-col);">Louise Collection</span>
                           </div>
                           <div class="description" style="color: var(--first);">
-                            150$
+                            150.99$
                           </div>
                         </div>
                     </div>
                   </div>
                   <div class="five wide column">
-                    <div class="ui card" style="
-                    border: none;
-                    background: var(--background);
-                    box-shadow: none;">
-                    <div class="image">
-                      <img src="images/ring2.jpg">
+                    <div class="special cards">
+                      <div class="ui card" style="
+                        border: none;
+                        background: var(--background);
+                        box-shadow: none;">
+                        <div class="blurring dimmable image">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">See item</div>
+                              </div>
+                            </div>
+                          </div>
+                          <img src="images/ring1.jpg">
+                        </div>
+                          <div class="content" style="text-align: center;">
+                            <a class="header" style="color: var(--first);" href="/itemstub.html">Woven Chain</a>
+                            <div class="meta">
+                              <span style="color: var(--fnt-col);">Perez Bitan Collection</span>
+                            </div>
+                            <div class="description" style="color: var(--first);">
+                              190.99$
+                            </div>
+                          </div>
+                      </div>
                     </div>
-                    <div class="content" style="text-align: center;">
-                      <a class="header" style="color: var(--fnt-col);">Com Truise</a>
-                    </div>
-                  </div>
+
+
                 </div>
                 <div class="five wide column">
                   <div class="ui card" style="
@@ -293,7 +350,13 @@
                     <img src="images/ring3.jpg">
                   </div>
                   <div class="content" style="text-align: center;">
-                    <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+                    <a class="header" style="color: var(--first);" href="/itemstub.html">Dream Links</a>
+                    <div class="meta">
+                      <span style="color: var(--fnt-col);">Yi Collection</span>
+                    </div>
+                    <div class="description" style="color: var(--first);">
+                      250.99$
+                    </div>
                   </div>
                 </div>
               </div>
@@ -307,9 +370,15 @@
                 <div class="image">
                   <img src="images/ring4.jpg">
                 </div>
-                <div class="content" style="text-align: center;">
-                  <a class="header" style="color: var(--fnt-col);">Com Truise</a>
-                </div>
+                  <div class="content" style="text-align: center;">
+                    <a class="header" style="color: var(--first);" href="/itemstub.html">Octagon Slice</a>
+                    <div class="meta">
+                      <span style="color: var(--fnt-col);">Yi Collection</span>
+                    </div>
+                    <div class="description" style="color: var(--first);">
+                      299.99$
+                    </div>
+                  </div>
               </div>
             </div>
             <div class="five wide column">
@@ -321,7 +390,13 @@
                 <img src="images/ring5.jpg">
               </div>
               <div class="content" style="text-align: center;">
-                <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+                <a class="header" style="color: var(--first);" href="/itemstub.html">Pyramid ring</a>
+                <div class="meta">
+                  <span style="color: var(--fnt-col);">Louise Collection</span>
+                </div>
+                <div class="description" style="color: var(--first);">
+                  150.99$
+                </div>
               </div>
             </div>
           </div>
@@ -396,49 +471,49 @@
 
 
 <div class="ui four column grid">
-  <div class="row" style="background: var(--background); border-top: 1px solid var(--first);">
+  <div class="row" style="background: var(--background); border-top: 1px solid var(--first); margin-right: 20px;">
     <div class="column">
-      <div class="">
+      <div style="margin-left: 45%;">
         <h4 style="color: var(--fnt-col);">COMPANY</h4>
-        <ul style="color: var(--fnt-col); list-style-type: none;">
-          <li>About Sauicer</li>
-          <li>Store locations</li>
-          <li>Investor Center</li>
+        <ul style="color: var(--fnt-col); list-style-type: none; padding-left: 0;">
+          <li><a href="#">About Sauicer</a></li>
+          <li><a href="#">Store locations</a></li>
+          <li><a href="#">Investor Center</a></li>
         </ul>
       </div>
     </div>
-    <div class="column">
+    <div class="column" style="padding-left: 80px;">
       <h4 style="color: var(--fnt-col);">Customer Service</h4>
-      <ul style="color: var(--fnt-col); list-style-type: none;">
-        <li>About Sauicer</li>
-        <li>Store locations</li>
-        <li>Investor Center</li>
+      <ul style="color: var(--fnt-col); list-style-type: none; padding-left: 0;">
+        <li><a href="#">About Sauicer</a></li>
+        <li><a href="#">Store locations</a></li>
+        <li><a href="#">Investor Center</a></li>
       </ul>
     </div>
-    <div class="column" style="background: var(--background);">
+    <div class="column" style="background: var(--background); width: 18%;">
       <h4 style="color: var(--fnt-col);">Keep in touch</h4>
-      <div class="row">
-        <button class="ui circular facebook icon button">
+      <div class="row" style="margin-bottom: 10px;">
+        <button class="ui circular facebook icon button" id="socialButton" style="margin-right: 25px;">
           <i class="facebook icon"></i>
         </button>
-        <button class="ui circular instagram icon button">
+        <button class="ui circular instagram icon button" id="socialButton">
           <i class="instagram icon"></i>
         </button>
       </div>
       <div class="row">
-        <button class="ui circular twitter icon button">
+        <button class="ui circular twitter icon button" id="socialButton" style="margin-right: 25px;">
           <i class="twitter icon"></i>
         </button>
-        <button class="ui circular pinterest icon button">
+        <button class="ui circular pinterest icon button" id="socialButton">
           <i class="pinterest icon"></i>
         </button>
       </div>
 
 
     </div>
-    <div class="column">
-      <h2 style="color: var(--fnt-col);">Newsletter</h2>
-      <p style="color: var(--fnt-col);">Get the latest product & design updates right in your inbox</p>
+    <div class="column" style="text-align:center; width: 32%;">
+      <h2 style="color: var(--fnt-col); ">Newsletter</h2>
+      <p style="color: var(--fnt-col); ">Get the latest product & design updates right in your inbox</p>
       <div class="ui input">
         <input style="
         border-radius: 0em;
@@ -453,9 +528,15 @@
       </div>
     </div>
   </div>
-  <div class="three column row" style="background: var(--background);">
-    <div class="column" style="color: var(--fnt-col);">
-      Terms of use | Privacy Policy | Sitemap | Copyright
+  <div class="row" style="background: var(--background); margin-right: 20px;">
+    <div class="column" style="color: var(--fnt-col); margin-left: 10%; width: 50%;">
+      <a href="#">Terms of use</a>
+      <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="#">Privacy Policy</a>
+      <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="#">Sitemap</a>
+      <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+      <a href="#">Copyright</a>
     </div>
   </div>
 </div>

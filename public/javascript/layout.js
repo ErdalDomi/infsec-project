@@ -1,7 +1,14 @@
 $( document ).ready(function() {
 
+
+
+  $('.special.cards .image').dimmer({
+    on: 'hover'
+  });
+  $('.bxslider').bxSlider();
   $('.ui.sidebar').sidebar();
   $('.ui.accordion').accordion();
+  $('.ui.accordion').accordion({exclusive:false})
   $('.ui.dropdown').dropdown();
   $('.ui.modal').modal({
     onShow : function(){
@@ -78,6 +85,7 @@ $( document ).ready(function() {
     }
   });
 
+  $('#photoSlider').css('visibility','visible');
 });
 
 function showSignInModal(){
@@ -93,4 +101,9 @@ function showRegisterModal(){
     })
     .modal('show')
   ;
+}
+
+function itemModal(itemName){
+  $('#itemModal').modal({blurring: true}).modal('show');
+  $('#testItem').text(itemName);
 }
