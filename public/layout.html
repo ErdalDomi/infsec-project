@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" type="text/css" href="semantic/dist/semantic.css">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="semantic/dist/semantic.min.js"></script>
     <script src="javascript/layout.js"></script>
     <script src="javascript/jquery.sticky.js"></script>
+    <script src="semantic/dist/semantic.min.js"></script>
+
+
   </head>
 
   <body>
@@ -28,7 +30,7 @@
           Sign in
         </div>
         <div class="content" style="text-align: center;">
-          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;" onsubmit="alert('hi');event.preventDefault(); signIn();">
             <div class="ui stacked segment" id="formSegment">
               <div class="field">
                 <div class="ui left icon input">
@@ -59,7 +61,7 @@
           Register
         </div>
         <div class="content" style="text-align: center;">
-          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;" action="/signup" method="post">
             <div class="ui stacked segment" id="formSegment">
               <div class="field">
                 <div class="ui left icon input">

@@ -1,11 +1,10 @@
 $( document ).ready(function() {
 
-
-
   $('.special.cards .image').dimmer({
     on: 'hover'
   });
-  $('.bxslider').bxSlider();
+
+
   $('.ui.sidebar').sidebar();
   $('.ui.accordion').accordion();
   $('.ui.accordion').accordion({exclusive:false})
@@ -86,6 +85,8 @@ $( document ).ready(function() {
   });
 
   $('#photoSlider').css('visibility','visible');
+  $('.bxslider').bxSlider();
+  
 });
 
 function showSignInModal(){
@@ -106,4 +107,23 @@ function showRegisterModal(){
 function itemModal(itemName){
   $('#itemModal').modal({blurring: true}).modal('show');
   $('#testItem').text(itemName);
+}
+
+
+
+function signIn(){
+  console.log("in the sign in function");
+  var email = document.getElementsByName('email')[0].value;
+  var password = document.getElementsByName('password')[0].value;
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function(){
+    if(this.readyState == 4 && this.status == 200){
+
+    }
+  }
+
+  xhttp.open("post", "/login", true);
+  xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhttp.send('email='+email+'&password='+password);
 }
