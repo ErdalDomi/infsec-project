@@ -4,7 +4,6 @@ $( document ).ready(function() {
     on: 'hover'
   });
 
-
   $('.ui.sidebar').sidebar();
   $('.ui.accordion').accordion();
   $('.ui.accordion').accordion({exclusive:false})
@@ -32,13 +31,11 @@ $( document ).ready(function() {
   $("#secondMenu").sticky({ topSpacing: 42 });
 
   $("#secondMenu").on('sticky-start', function(){
+    console.log('inside sticky start');
     $('#miniLogo').show("slow");
     $('#slider').animate({
       width: $('#secondMenu').width()
     },400);
-    // $('.test').addClass("vertical");
-    // $('.test').removeClass("horizontal");
-    //$('.test').removeClass("center");
   });
 
   $("#secondMenu").on('sticky-end', function(){
@@ -46,9 +43,6 @@ $( document ).ready(function() {
     $('#slider').animate({
       width: 0
     },400);
-    // $('.test').addClass("horizontal");
-    // $('.test').removeClass("vertical");
-    //$('.test').addClass("center");
   });
 
 
@@ -86,7 +80,7 @@ $( document ).ready(function() {
 
   $('#photoSlider').css('visibility','visible');
   $('.bxslider').bxSlider();
-  
+
 });
 
 function showSignInModal(){
@@ -126,4 +120,16 @@ function signIn(){
   xhttp.open("post", "/login", true);
   xhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhttp.send('email='+email+'&password='+password);
+}
+
+function addToCart(){
+  $('#shoppingCart').sidebar('toggle');
+  $('#itemHeader').text('Pyramid ring');
+  $('#itemMaker').text('Perez Bitan');
+  $('#itemPrice').text('150.99$');
+  $('#cartQuantity').text('1');
+}
+
+function checkout(){
+  $('#paymentModal').modal({blurring: false}).modal('show');
 }

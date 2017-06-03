@@ -1,10 +1,10 @@
 /*QuickReset*/ *{box-sizing:border-box;margin:0;} html,body{height:100%;}
 
 :root {
-  --background: #171717;
-  --second: #4B4E6D;
-  --first: #377A46;
-  --fnt-col: #F9F8F8;
+  --background: #2B211E; /*raising black*/
+  --second: #E8985E;
+  --first: #D69E80; /**/
+  --fnt-col: #D5BA87; /*aztec gold*/
 }
 
 /*main theme*/
@@ -268,4 +268,10 @@ div.item.horizontal.test:hover > a{
   padding-bottom: 0px;
   overflow: hidden;
   height: 70px;
+}
+
+#seeItem{
+  color: var(--first);
+  background: var(--background);
+  box-shadow: 0px 0px 0px 2px var(--second) inset !important;
 }

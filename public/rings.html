@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>layout scaffolding</title>
+  <title>Saucier</title>
 
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
   <!-- bxSlider Javascript file -->
@@ -26,10 +26,16 @@
 
 <body>
 
-  <div class="ui right sidebar inverted vertical menu" id="shoppingCart">
-    <h3 class="item">
-      Shopping bag list goes here.
+  <div class="ui right sidebar inverted vertical menu" id="shoppingCart" style="text-align:center;">
+    <h3 class="item" style="color:var(--fnt-col);">
+      Shopping bag list
     </h3>
+    <div class="item" id="itemPlaceholder">
+      <h3 id="itemHeader"></h3>
+      <p id="itemMaker"></p>
+      <h3 style="color:var(--first);" id="itemPrice"></h3>
+    </div>
+    <button class="ui inverted brown button" style="position: absolute;bottom: 0;right: 60px;" onclick="checkout();">Checkout</button>
   </div>
 
   <div class="pusher" id="container">
@@ -107,13 +113,75 @@
       </div>
     </div>
 
+    <div class="ui modal" id="paymentModal">
+      <div class="header">
+        Make payment
+      </div>
+      <div class="content">
+        <form class="ui form">
+          <h4 class="ui dividing header">Shipping Information</h4>
+          <div class="field">
+            <label>Name</label>
+            <div class="two fields">
+              <div class="field">
+                <input type="text" name="shipping[first-name]" placeholder="First Name">
+              </div>
+              <div class="field">
+                <input type="text" name="shipping[last-name]" placeholder="Last Name">
+              </div>
+            </div>
+          </div>
+          <div class="field">
+            <label>Billing Address</label>
+            <div class="fields">
+              <div class="twelve wide field">
+                <input type="text" name="shipping[address]" placeholder="Street Address">
+              </div>
+              <div class="four wide field">
+                <input type="text" name="shipping[address-2]" placeholder="Apt #">
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Country</label>
+            <input type="text" name="shipping[address]" placeholder="Country of residence">
+          </div>
+
+
+          <h4 class="ui dividing header">Billing Information</h4>
+
+          <div class="fields">
+            <div class="six wide field">
+              <label>Card Number</label>
+              <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
+            </div>
+            <div class="three wide field">
+              <label>CVC</label>
+              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
+            </div>
+            <div class="three wide field">
+              <label>Expiration</label>
+              <input type="text" name="card[expiration]" maxlength="16" placeholder="month">
+            </div>
+            <div class="three wide field">
+              <label>.</label>
+              <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
+            </div>
+          </div>
+          <div class="ui button" tabindex="0">Submit Order</div>
+        </form>
+      </div>
+    </div>
+
+
     <div class="flex-col">
       <div class="ui top fixed borderless menu" style="background:var(--background); border-bottom: 1px solid var(--first); height: 42px;">
         <div class="item" id="topMenuItems">
           <a href="#" onclick="showSignInModal();" style="color: var(--fnt-col);">Sign in</a>
           <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <a href="#" onclick="showRegisterModal();" style="color: var(--fnt-col);">Register&nbsp;&nbsp;</a>
-          <span style="color: var(--fnt-col);">0</span>
+          <span style="color: var(--fnt-col);" id="cartQuantity">0</span>
           <button class="ui icon button" id="bagButton" onclick="$('#shoppingCart').sidebar().sidebar('toggle');">
             <i class="shopping bag icon"></i>
           </button>
@@ -179,10 +247,10 @@
 
           <div class="centered row" style="background: var(--background); height: 100%; margin-right: 20px; margin-left: 20px; visibility:hidden;" id="photoSlider">
             <ul class="bxslider">
-              <li><img src="images/mainring.jpg" /></li>
-              <li><img src="images/mainring.jpg" /></li>
-              <li><img src="images/mainring.jpg" /></li>
-              <li><img src="images/mainring.jpg" /></li>
+              <li><img src="images/sliderring4.jpg" style="height: 280px;"/></li>
+              <li><img src="images/sliderring1.jpg" style="height: 280px;"/></li>
+              <li><img src="images/sliderring5.jpg" style="height: 280px;"/></li>
+              <li><img src="images/sliderring3.jpg" style="height: 280px;"/></li>
             </ul>
           </div>
 
@@ -273,14 +341,14 @@
                       <div class="ui header">PYRAMID BLACK STERLING RING</div>
                       <p>Perez Bitan</p>
                       <h5>A delicate yet strong pyramid floats above this black sterling silver band. Day or night, you will feel its power.</h5>
-                      <h3 style="color: var(--first);">150.99$</h3>
+                      <h3 style="color: var(--second);">150.99$</h3>
                     </div>
                   </div>
                   <div class="actions">
                     <div class="ui black deny button">
                       Close
                     </div>
-                    <div class="ui positive right labeled icon button" id="addToCart" onclick="$('#shoppingCart').sidebar('toggle');">
+                    <div class="ui positive right labeled icon button" id="addToCart" onclick="addToCart();">
                       Add to cart
                       <i class="cart icon"></i>
                     </div>
@@ -291,12 +359,20 @@
                 <div class="ui grid" style="width: 100%;">
                   <div class="row">
                     <div class="five wide column">
+                      <div class="special cards">
                       <div class="ui card" style="
                       border: none;
                       background: var(--background);
                       box-shadow: none;">
 
-                        <div class="image" onclick="itemModal('pyramid ring')">
+                        <div class="blurring dimmable image" onclick="itemModal('pyramid ring')">
+                          <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                              </div>
+                            </div>
+                          </div>
                           <img src="images/ring1.jpg">
                         </div>
 
@@ -305,11 +381,12 @@
                           <div class="meta">
                             <span style="color: var(--fnt-col);">Louise Collection</span>
                           </div>
-                          <div class="description" style="color: var(--first);">
+                          <div class="description" style="color: var(--second);">
                             150.99$
                           </div>
                         </div>
                     </div>
+                  </div>
                   </div>
                   <div class="five wide column">
                     <div class="special cards">
@@ -321,7 +398,7 @@
                           <div class="ui dimmer">
                             <div class="content">
                               <div class="center">
-                                <div class="ui inverted button">See item</div>
+                                <div class="ui inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
                               </div>
                             </div>
                           </div>
@@ -332,7 +409,7 @@
                             <div class="meta">
                               <span style="color: var(--fnt-col);">Perez Bitan Collection</span>
                             </div>
-                            <div class="description" style="color: var(--first);">
+                            <div class="description" style="color: var(--second);">
                               190.99$
                             </div>
                           </div>
@@ -342,23 +419,32 @@
 
                 </div>
                 <div class="five wide column">
-                  <div class="ui card" style="
-                  border: none;
-                  background: var(--background);
-                  box-shadow: none;">
-                  <div class="image">
-                    <img src="images/ring3.jpg">
-                  </div>
-                  <div class="content" style="text-align: center;">
-                    <a class="header" style="color: var(--first);" href="/itemstub.html">Dream Links</a>
-                    <div class="meta">
-                      <span style="color: var(--fnt-col);">Yi Collection</span>
+                  <div class="special cards">
+                    <div class="ui card" style="
+                      border: none;
+                      background: var(--background);
+                      box-shadow: none;">
+                      <div class="blurring dimmable image">
+                        <div class="ui dimmer">
+                          <div class="content">
+                            <div class="center">
+                              <div class="ui inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                            </div>
+                          </div>
+                        </div>
+                        <img src="images/ring3.jpg">
+                      </div>
+                        <div class="content" style="text-align: center;">
+                          <a class="header" style="color: var(--first);" href="/itemstub.html">Dream Links</a>
+                          <div class="meta">
+                            <span style="color: var(--fnt-col);">Yi Collection</span>
+                          </div>
+                          <div class="description" style="color: var(--second);">
+                            250.99$
+                          </div>
+                        </div>
                     </div>
-                    <div class="description" style="color: var(--first);">
-                      250.99$
-                    </div>
                   </div>
-                </div>
               </div>
             </div>
             <div class="row">
@@ -375,7 +461,7 @@
                     <div class="meta">
                       <span style="color: var(--fnt-col);">Yi Collection</span>
                     </div>
-                    <div class="description" style="color: var(--first);">
+                    <div class="description" style="color: var(--second);">
                       299.99$
                     </div>
                   </div>
@@ -394,8 +480,8 @@
                 <div class="meta">
                   <span style="color: var(--fnt-col);">Louise Collection</span>
                 </div>
-                <div class="description" style="color: var(--first);">
-                  150.99$
+                <div class="description" style="color: var(--second);">
+                  350.99$
                 </div>
               </div>
             </div>
@@ -409,7 +495,13 @@
               <img src="images/ring6.jpg">
             </div>
             <div class="content" style="text-align: center;">
-              <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+              <a class="header" style="color: var(--first);" href="/itemstub.html">Aztec jewel</a>
+              <div class="meta">
+                <span style="color: var(--fnt-col);">Muller Collection</span>
+              </div>
+              <div class="description" style="color: var(--second);">
+                450.99$
+              </div>
             </div>
           </div>
         </div>
@@ -424,7 +516,13 @@
             <img src="images/ring7.jpg">
           </div>
           <div class="content" style="text-align: center;">
-            <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+            <a class="header" style="color: var(--first);" href="/itemstub.html">Core ring</a>
+            <div class="meta">
+              <span style="color: var(--fnt-col);">Yi Collection</span>
+            </div>
+            <div class="description" style="color: var(--second);">
+              750.99$
+            </div>
           </div>
         </div>
       </div>
@@ -437,7 +535,13 @@
           <img src="images/ring8.jpg">
         </div>
         <div class="content" style="text-align: center;">
-          <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+          <a class="header" style="color: var(--first);" href="/itemstub.html">Emerald stone</a>
+          <div class="meta">
+            <span style="color: var(--fnt-col);">Muller Collection</span>
+          </div>
+          <div class="description" style="color: var(--second);">
+            950.99$
+          </div>
         </div>
       </div>
     </div>
@@ -450,7 +554,13 @@
         <img src="images/ring9.jpg">
       </div>
       <div class="content" style="text-align: center;">
-        <a class="header" style="color: var(--fnt-col);">Com Truise</a>
+        <a class="header" style="color: var(--first);" href="/itemstub.html">Cold ember</a>
+        <div class="meta">
+          <span style="color: var(--fnt-col);">Yi Collection</span>
+        </div>
+        <div class="description" style="color: var(--second);">
+          1500$
+        </div>
       </div>
     </div>
   </div>
