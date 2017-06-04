@@ -26,154 +26,149 @@
 
 <body>
 
-  <div class="ui right sidebar inverted vertical menu" id="shoppingCart" style="text-align:center;">
-    <h3 class="item" style="color:var(--fnt-col);">
-      Shopping bag list
-    </h3>
-    <div class="item" id="itemPlaceholder">
-      <h3 id="itemHeader"></h3>
-      <p id="itemMaker"></p>
-      <h3 style="color:var(--first);" id="itemPrice"></h3>
+
+      <div class="ui basic modal" id="loginModal">
+        <div class="ui icon header" id="signInIcon">
+          <i class="envira gallery icon" style="color: var(--first);"></i>
+          Sign in
+        </div>
+        <div class="content" style="text-align: center;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;" onsubmit="event.preventDefault(); logIn();">
+            <div class="ui stacked segment" id="formSegment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="user icon" id="inputIcons"></i>
+                  <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" id="inputIcons"></i>
+                  <input id="inputFields" type="password" name="password" placeholder="Password">
+                </div>
+              </div>
+              <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
+            </div>
+
+            <div class="ui error message" style="background:inherit;"></div>
+
+          </form>
+
+          <span style="color: var(--fnt-col);">Don't have an account? Register <a href="#" style="color: var(--second);" onclick="showRegisterModal();">here.</a></span>
+        </div>
+      </div>
+
+      <div class="ui basic modal" id="registerModal">
+        <div class="ui icon header" id="signInIcon">
+          <i class="user icon" id="inputIcons"></i>
+          Register
+        </div>
+        <div class="content" style="text-align: center;">
+          <form class="ui large form" style="margin-left: 30%; margin-right: 30%;" onsubmit="event.preventDefault(); signUp();">
+            <div class="ui stacked segment" id="formSegment">
+              <div class="field">
+                <div class="ui left icon input">
+                  <i id="inputIcons" class="user icon"></i>
+                  <input id="inputFields" type="text" name="regEmail" placeholder="E-mail address" autocomplete="off">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" id="inputIcons"></i>
+                  <input id="inputFields" type="password" name="regPassword" placeholder="Password">
+                </div>
+              </div>
+              <div class="field">
+                <div class="ui left icon input">
+                  <i class="lock icon" id="inputIcons"></i>
+                  <input id="inputFields" type="password" name="regPasswordConfirm" placeholder="Confirm password">
+                </div>
+              </div>
+              <div class="ui fluid large inverted green submit button" id="registerButton">Register</div>
+            </div>
+
+            <div class="ui error message" style="background:inherit;"></div>
+
+          </form>
+
+        </div>
+      </div>
+
+      <div class="ui modal" id="paymentModal">
+        <div class="header" style="background: var(--background); color: var(--second); text-align: center;">
+          Make payment
+        </div>
+        <div class="content" style="background: var(--background); color: var(--fnt-col);">
+          <form class="ui form">
+            <h3 class="ui dividing header" style="color: var(--first);">Shipping Information</h3>
+            <div class="field">
+              <label style="color: var(--fnt-col);">Name</label>
+              <div class="two fields">
+                <div class="field">
+                  <input type="text" name="shipping[first-name]" placeholder="First Name" id="paymentFields">
+                </div>
+                <div class="field">
+                  <input type="text" name="shipping[last-name]" placeholder="Last Name" id="paymentFields">
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label style="color: var(--fnt-col);">Billing Address</label>
+              <div class="fields">
+                <div class="twelve wide field">
+                  <input type="text" name="shipping[address]" placeholder="Street Address" id="paymentFields">
+                </div>
+                <div class="four wide field">
+                  <input type="text" name="shipping[address-2]" placeholder="Apt #" id="paymentFields">
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label style="color: var(--fnt-col);">Country</label>
+              <input type="text" name="shipping[address]" placeholder="Country of residence" id="paymentFields">
+            </div>
+
+
+            <h3 class="ui dividing header" style="color: var(--first);">Billing Information</h3>
+
+            <div class="fields">
+              <div class="six wide field">
+                <label style="color: var(--fnt-col);">Card Number</label>
+                <input type="text" name="card[number]" maxlength="16" placeholder="Card #" id="paymentFields">
+              </div>
+              <div class="three wide field">
+                <label style="color: var(--fnt-col);">CVC</label>
+                <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC" id="paymentFields">
+              </div>
+              <div class="three wide field">
+                <label style="color: var(--fnt-col);">Expiration</label>
+                <input type="text" name="card[expiration]" maxlength="16" placeholder="month" id="paymentFields">
+              </div>
+              <div class="three wide field">
+                <label>.</label>
+                <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year" id="paymentFields">
+              </div>
+            </div>
+            <div class="ui brown inverted button" tabindex="0" style="position: relative; margin-top: 20px;left: 44%;">Submit Order</div>
+          </form>
+        </div>
+      </div>
+
+
+  <div class="ui right sidebar inverted vertical menu" id="shoppingCart" style=" background: var(--background);">
+    <div class="item" style="color:var(--fnt-col);">
+      <h3>Shopping bag</h3>
     </div>
-    <button class="ui inverted brown button" style="position: absolute;bottom: 0;right: 60px;" onclick="checkout();">Checkout</button>
+    <div class="item" id="itemPlaceholder">
+      <h3 id="itemHeader" ></h3>
+      <p id="itemMaker" style="color: var(--fnt-col);"></p>
+      <h3 style="color:var(--second);" id="itemPrice"></h3>
+    </div>
+    <button class="ui inverted brown button" style="position: absolute;bottom: 5px;right: 60px;" onclick="checkout();">Checkout</button>
   </div>
 
   <div class="pusher" id="container">
-
-    <div class="ui basic modal" id="loginModal">
-      <div class="ui icon header" id="signInIcon">
-        <i class="envira gallery icon" style="color: var(--first);"></i>
-        Sign in
-      </div>
-      <div class="content" style="text-align: center;">
-        <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
-          <div class="ui stacked segment" id="formSegment">
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="user icon" id="inputIcons"></i>
-                <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon" id="inputIcons"></i>
-                <input id="inputFields" type="password" name="password" placeholder="Password">
-              </div>
-            </div>
-            <div class="ui fluid large inverted green submit button" id="logInButton">Sign</div>
-          </div>
-
-          <div class="ui error message" style="background:inherit;"></div>
-
-        </form>
-
-        <span style="color: var(--fnt-col);">Don't have an account? Register <a href="#" style="color: var(--second);" onclick="showRegisterModal();">here.</a></span>
-      </div>
-    </div>
-
-    <div class="ui basic modal" id="registerModal">
-      <div class="ui icon header" id="signInIcon">
-        <i class="user icon" id="inputIcons"></i>
-        Register
-      </div>
-      <div class="content" style="text-align: center;">
-        <form class="ui large form" style="margin-left: 30%; margin-right: 30%;">
-          <div class="ui stacked segment" id="formSegment">
-            <div class="field">
-              <div class="ui left icon input">
-                <i id="inputIcons" class="user icon"></i>
-                <input id="inputFields" type="text" name="email" placeholder="E-mail address" autocomplete="off">
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon" id="inputIcons"></i>
-                <input id="inputFields" type="password" name="password" placeholder="Password">
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="lock icon" id="inputIcons"></i>
-                <input id="inputFields" type="password" name="confirmpassword" placeholder="Confirm password">
-              </div>
-            </div>
-            <div class="field">
-              <div class="ui left icon input">
-                <i class="user icon" id="inputIcons"></i>
-                <input id="inputFields" type="text" name="address" placeholder="Delivery address" autocomplete="off">
-              </div>
-            </div>
-            <div class="ui fluid large inverted green submit button" id="registerButton">Register</div>
-          </div>
-
-          <div class="ui error message" style="background:inherit;"></div>
-
-        </form>
-
-      </div>
-    </div>
-
-    <div class="ui modal" id="paymentModal">
-      <div class="header">
-        Make payment
-      </div>
-      <div class="content">
-        <form class="ui form">
-          <h4 class="ui dividing header">Shipping Information</h4>
-          <div class="field">
-            <label>Name</label>
-            <div class="two fields">
-              <div class="field">
-                <input type="text" name="shipping[first-name]" placeholder="First Name">
-              </div>
-              <div class="field">
-                <input type="text" name="shipping[last-name]" placeholder="Last Name">
-              </div>
-            </div>
-          </div>
-          <div class="field">
-            <label>Billing Address</label>
-            <div class="fields">
-              <div class="twelve wide field">
-                <input type="text" name="shipping[address]" placeholder="Street Address">
-              </div>
-              <div class="four wide field">
-                <input type="text" name="shipping[address-2]" placeholder="Apt #">
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label>Country</label>
-            <input type="text" name="shipping[address]" placeholder="Country of residence">
-          </div>
-
-
-          <h4 class="ui dividing header">Billing Information</h4>
-
-          <div class="fields">
-            <div class="six wide field">
-              <label>Card Number</label>
-              <input type="text" name="card[number]" maxlength="16" placeholder="Card #">
-            </div>
-            <div class="three wide field">
-              <label>CVC</label>
-              <input type="text" name="card[cvc]" maxlength="3" placeholder="CVC">
-            </div>
-            <div class="three wide field">
-              <label>Expiration</label>
-              <input type="text" name="card[expiration]" maxlength="16" placeholder="month">
-            </div>
-            <div class="three wide field">
-              <label>.</label>
-              <input type="text" name="card[expire-year]" maxlength="4" placeholder="Year">
-            </div>
-          </div>
-          <div class="ui button" tabindex="0">Submit Order</div>
-        </form>
-      </div>
-    </div>
-
 
     <div class="flex-col">
       <div class="ui top fixed borderless menu" style="background:var(--background); border-bottom: 1px solid var(--first); height: 42px;">
@@ -182,7 +177,7 @@
           <span style="color: var(--fnt-col);">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
           <a href="#" onclick="showRegisterModal();" style="color: var(--fnt-col);">Register&nbsp;&nbsp;</a>
           <span style="color: var(--fnt-col);" id="cartQuantity">0</span>
-          <button class="ui icon button" id="bagButton" onclick="$('#shoppingCart').sidebar().sidebar('toggle');">
+          <button class="ui icon toggle button" id="bagButton" onclick="showSidebar();">
             <i class="shopping bag icon"></i>
           </button>
         </div>
@@ -333,22 +328,23 @@
 
                 <div class="ui modal" id="itemModal">
                   <!-- <i class="close icon"></i> -->
-                  <div class="image content">
+                  <div class="image content" style="background:#3E3532; color:var(--fnt-col);">
                     <div class="ui large image">
-                      <img src="images/ring1.jpg">
+                      <img src="images/newring1.jpg">
                     </div>
                     <div class="description" style="margin-top:30px">
-                      <div class="ui header">PYRAMID BLACK STERLING RING</div>
+                      <div class="ui header" style="color:var(--first);">SKELETON RING</div>
                       <p>Perez Bitan</p>
-                      <h5>A delicate yet strong pyramid floats above this black sterling silver band. Day or night, you will feel its power.</h5>
-                      <h3 style="color: var(--second);">150.99$</h3>
+                      <h5>A delicate yet strong pyramid floats above this black sterling silver ring. Day or night, you will feel its power.</h5>
+
+                      <h3 style="color: var(--second);">250.00$</h3>
                     </div>
                   </div>
-                  <div class="actions">
-                    <div class="ui black deny button">
-                      Close
+                  <div class="actions" style="background: #3E3532; border-top:none;">
+                    <div class="ui deny">
+
                     </div>
-                    <div class="ui positive right labeled icon button" id="addToCart" onclick="addToCart();">
+                    <div class="ui brown right labeled icon button" id="addToCart" onclick="addToCart();">
                       Add to cart
                       <i class="cart icon"></i>
                     </div>
@@ -369,20 +365,20 @@
                           <div class="ui dimmer">
                             <div class="content">
                               <div class="center">
-                                <div class="ui inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                                <div class="ui big inverted button" onclick="itemModal('Skeleton Ring');" id="seeItem">See item</div>
                               </div>
                             </div>
                           </div>
-                          <img src="images/ring1.jpg">
+                          <img src="images/newring1.jpg">
                         </div>
 
                         <div class="content" style="text-align: center;">
-                          <a class="header" style="color: var(--first);" href="/itemstub.html">Pyramid ring</a>
+                          <a class="header" style="color: var(--first);" href="/itemstub.html">Skeleton Ring</a>
                           <div class="meta">
                             <span style="color: var(--fnt-col);">Louise Collection</span>
                           </div>
                           <div class="description" style="color: var(--second);">
-                            150.99$
+                            250.00$
                           </div>
                         </div>
                     </div>
@@ -398,11 +394,11 @@
                           <div class="ui dimmer">
                             <div class="content">
                               <div class="center">
-                                <div class="ui inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                                <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
                               </div>
                             </div>
                           </div>
-                          <img src="images/ring1.jpg">
+                          <img src="images/newring2.jpg">
                         </div>
                           <div class="content" style="text-align: center;">
                             <a class="header" style="color: var(--first);" href="/itemstub.html">Woven Chain</a>
@@ -410,7 +406,7 @@
                               <span style="color: var(--fnt-col);">Perez Bitan Collection</span>
                             </div>
                             <div class="description" style="color: var(--second);">
-                              190.99$
+                              300.00$
                             </div>
                           </div>
                       </div>
@@ -428,11 +424,11 @@
                         <div class="ui dimmer">
                           <div class="content">
                             <div class="center">
-                              <div class="ui inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                              <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
                             </div>
                           </div>
                         </div>
-                        <img src="images/ring3.jpg">
+                        <img src="images/newring3.jpg">
                       </div>
                         <div class="content" style="text-align: center;">
                           <a class="header" style="color: var(--first);" href="/itemstub.html">Dream Links</a>
@@ -440,7 +436,7 @@
                             <span style="color: var(--fnt-col);">Yi Collection</span>
                           </div>
                           <div class="description" style="color: var(--second);">
-                            250.99$
+                            350.00$
                           </div>
                         </div>
                     </div>
@@ -449,118 +445,172 @@
             </div>
             <div class="row">
               <div class="five wide column">
+                <div class="special cards">
+                  <div class="ui card" style="
+                  border: none;
+                  background: var(--background);
+                  box-shadow: none;">
+                  <div class="blurring dimmable image">
+                    <div class="ui dimmer">
+                      <div class="content">
+                        <div class="center">
+                          <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                        </div>
+                      </div>
+                    </div>
+                    <img src="images/newring4.jpg">
+                  </div>
+                    <div class="content" style="text-align: center;">
+                      <a class="header" style="color: var(--first);" href="/itemstub.html">Octagon Slice</a>
+                      <div class="meta">
+                        <span style="color: var(--fnt-col);">Yi Collection</span>
+                      </div>
+                      <div class="description" style="color: var(--second);">
+                        400.00$
+                      </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="five wide column">
+              <div class="special cards">
                 <div class="ui card" style="
                 border: none;
                 background: var(--background);
                 box-shadow: none;">
-                <div class="image">
-                  <img src="images/ring4.jpg">
+                <div class="blurring dimmable image">
+                  <div class="ui dimmer">
+                    <div class="content">
+                      <div class="center">
+                        <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="images/newring5.jpg">
                 </div>
                   <div class="content" style="text-align: center;">
-                    <a class="header" style="color: var(--first);" href="/itemstub.html">Octagon Slice</a>
+                    <a class="header" style="color: var(--first);" href="/itemstub.html">Spiral Stair</a>
                     <div class="meta">
-                      <span style="color: var(--fnt-col);">Yi Collection</span>
+                      <span style="color: var(--fnt-col);">Roberto Demeglio</span>
                     </div>
                     <div class="description" style="color: var(--second);">
-                      299.99$
+                      400.00$
                     </div>
                   </div>
               </div>
             </div>
-            <div class="five wide column">
+          </div>
+          <div class="five wide column">
+            <div class="special cards">
               <div class="ui card" style="
               border: none;
               background: var(--background);
               box-shadow: none;">
-              <div class="image">
-                <img src="images/ring5.jpg">
-              </div>
-              <div class="content" style="text-align: center;">
-                <a class="header" style="color: var(--first);" href="/itemstub.html">Pyramid ring</a>
-                <div class="meta">
-                  <span style="color: var(--fnt-col);">Louise Collection</span>
+              <div class="blurring dimmable image">
+                <div class="ui dimmer">
+                  <div class="content">
+                    <div class="center">
+                      <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                    </div>
+                  </div>
                 </div>
-                <div class="description" style="color: var(--second);">
-                  350.99$
+                <img src="images/newring6.jpg">
+              </div>
+                <div class="content" style="text-align: center;">
+                  <a class="header" style="color: var(--first);" href="/itemstub.html">Two Pearls</a>
+                  <div class="meta">
+                    <span style="color: var(--fnt-col);">Louise Collection</span>
+                  </div>
+                  <div class="description" style="color: var(--second);">
+                    800.00$
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <div class="five wide column">
-            <div class="ui card" style="
-            border: none;
-            background: var(--background);
-            box-shadow: none;">
-            <div class="image">
-              <img src="images/ring6.jpg">
-            </div>
-            <div class="content" style="text-align: center;">
-              <a class="header" style="color: var(--first);" href="/itemstub.html">Aztec jewel</a>
-              <div class="meta">
-                <span style="color: var(--fnt-col);">Muller Collection</span>
-              </div>
-              <div class="description" style="color: var(--second);">
-                450.99$
-              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="row">
         <div class="five wide column">
-          <div class="ui card" style="
-          border: none;
-          background: var(--background);
-          box-shadow: none;">
-          <div class="image">
-            <img src="images/ring7.jpg">
-          </div>
-          <div class="content" style="text-align: center;">
-            <a class="header" style="color: var(--first);" href="/itemstub.html">Core ring</a>
-            <div class="meta">
-              <span style="color: var(--fnt-col);">Yi Collection</span>
+          <div class="special cards">
+            <div class="ui card" style="
+            border: none;
+            background: var(--background);
+            box-shadow: none;">
+            <div class="blurring dimmable image">
+              <div class="ui dimmer">
+                <div class="content">
+                  <div class="center">
+                    <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                  </div>
+                </div>
+              </div>
+              <img src="images/newring7.jpg">
             </div>
-            <div class="description" style="color: var(--second);">
-              750.99$
-            </div>
+              <div class="content" style="text-align: center;">
+                <a class="header" style="color: var(--first);" href="/itemstub.html">Wings</a>
+                <div class="meta">
+                  <span style="color: var(--fnt-col);">Roberto Demeglio</span>
+                </div>
+                <div class="description" style="color: var(--second);">
+                  700.00$
+                </div>
+              </div>
           </div>
         </div>
       </div>
       <div class="five wide column">
-        <div class="ui card" style="
-        border: none;
-        background: var(--background);
-        box-shadow: none;">
-        <div class="image">
-          <img src="images/ring8.jpg">
-        </div>
-        <div class="content" style="text-align: center;">
-          <a class="header" style="color: var(--first);" href="/itemstub.html">Emerald stone</a>
-          <div class="meta">
-            <span style="color: var(--fnt-col);">Muller Collection</span>
+        <div class="special cards">
+          <div class="ui card" style="
+          border: none;
+          background: var(--background);
+          box-shadow: none;">
+          <div class="blurring dimmable image">
+            <div class="ui dimmer">
+              <div class="content">
+                <div class="center">
+                  <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+                </div>
+              </div>
+            </div>
+            <img src="images/newring8.jpg">
           </div>
-          <div class="description" style="color: var(--second);">
-            950.99$
-          </div>
+            <div class="content" style="text-align: center;">
+              <a class="header" style="color: var(--first);" href="/itemstub.html">Pair Rings</a>
+              <div class="meta">
+                <span style="color: var(--fnt-col);">Yi Collection</span>
+              </div>
+              <div class="description" style="color: var(--second);">
+                600.00$
+              </div>
+            </div>
         </div>
       </div>
     </div>
     <div class="five wide column">
-      <div class="ui card" style="
-      border: none;
-      background: var(--background);
-      box-shadow: none;">
-      <div class="image">
-        <img src="images/ring9.jpg">
-      </div>
-      <div class="content" style="text-align: center;">
-        <a class="header" style="color: var(--first);" href="/itemstub.html">Cold ember</a>
-        <div class="meta">
-          <span style="color: var(--fnt-col);">Yi Collection</span>
+      <div class="special cards">
+        <div class="ui card" style="
+        border: none;
+        background: var(--background);
+        box-shadow: none;">
+        <div class="blurring dimmable image">
+          <div class="ui dimmer">
+            <div class="content">
+              <div class="center">
+                <div class="ui big inverted button" onclick="itemModal('woven chain');" id="seeItem">See item</div>
+              </div>
+            </div>
+          </div>
+          <img src="images/newring9.jpg">
         </div>
-        <div class="description" style="color: var(--second);">
-          1500$
-        </div>
+          <div class="content" style="text-align: center;">
+            <a class="header" style="color: var(--first);" href="/itemstub.html">Vines</a>
+            <div class="meta">
+              <span style="color: var(--fnt-col);">Anne Collection</span>
+            </div>
+            <div class="description" style="color: var(--second);">
+              900.00$
+            </div>
+          </div>
       </div>
     </div>
   </div>
